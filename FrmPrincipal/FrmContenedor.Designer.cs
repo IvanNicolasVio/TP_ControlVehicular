@@ -49,8 +49,8 @@
             // 
             menuToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listaVehiculosToolStripMenuItem, nuevoVehiculoToolStripMenuItem });
             menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            menuToolStripMenuItem.Size = new Size(50, 20);
-            menuToolStripMenuItem.Text = "Menu";
+            menuToolStripMenuItem.Size = new Size(69, 20);
+            menuToolStripMenuItem.Text = "Vehiculos";
             // 
             // listaVehiculosToolStripMenuItem
             // 
@@ -64,6 +64,7 @@
             nuevoVehiculoToolStripMenuItem.Name = "nuevoVehiculoToolStripMenuItem";
             nuevoVehiculoToolStripMenuItem.Size = new Size(180, 22);
             nuevoVehiculoToolStripMenuItem.Text = "Nuevo Vehiculo";
+            nuevoVehiculoToolStripMenuItem.Click += nuevoVehiculoToolStripMenuItem_Click;
             // 
             // textBox2
             // 
