@@ -54,15 +54,15 @@ namespace FrmPrincipal.Clases
         }
     }
 
-    internal class Chofer : Persona 
-    {
-        private string _licencia;
-        private string _legajo;
+    //internal class chofer : persona 
+    //{
+        //private string _licencia;
+        //private string _legajo;
 
-        public Chofer(string licencia, string legajo)
-        {
-            _licencia = licencia;
-            _legajo = legajo;
-        }
-    }
+       // public chofer(string licencia, string legajo)
+        //{
+//_licencia = licencia;
+          //  _legajo = legajo;
+       // }
+   // }
 }

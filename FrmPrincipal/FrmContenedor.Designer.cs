@@ -32,6 +32,7 @@
             menuToolStripMenuItem = new ToolStripMenuItem();
             listaVehiculosToolStripMenuItem = new ToolStripMenuItem();
             nuevoVehiculoToolStripMenuItem = new ToolStripMenuItem();
+            textBox2 = new TextBox();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -56,6 +57,7 @@
             listaVehiculosToolStripMenuItem.Name = "listaVehiculosToolStripMenuItem";
             listaVehiculosToolStripMenuItem.Size = new Size(180, 22);
             listaVehiculosToolStripMenuItem.Text = "Lista Vehiculos";
+            listaVehiculosToolStripMenuItem.Click += listaVehiculosToolStripMenuItem_Click;
             // 
             // nuevoVehiculoToolStripMenuItem
             // 
@@ -63,11 +65,23 @@
             nuevoVehiculoToolStripMenuItem.Size = new Size(180, 22);
             nuevoVehiculoToolStripMenuItem.Text = "Nuevo Vehiculo";
             // 
+            // textBox2
+            // 
+            textBox2.Font = new Font("Yu Gothic", 15.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            textBox2.Location = new Point(185, 61);
+            textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
+            textBox2.Size = new Size(399, 41);
+            textBox2.TabIndex = 3;
+            textBox2.Text = "BIENVENIDO";
+            textBox2.TextAlign = HorizontalAlignment.Center;
+            // 
             // FrmContenedor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(textBox2);
             Controls.Add(menuStrip1);
             IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
@@ -85,5 +99,6 @@
         private ToolStripMenuItem menuToolStripMenuItem;
         private ToolStripMenuItem listaVehiculosToolStripMenuItem;
         private ToolStripMenuItem nuevoVehiculoToolStripMenuItem;
+        private TextBox textBox2;
     }
 }
