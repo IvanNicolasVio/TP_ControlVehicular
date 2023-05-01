@@ -39,11 +39,12 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
+            button2 = new Button();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(42, 355);
+            button1.Location = new Point(42, 358);
             button1.Name = "button1";
             button1.Size = new Size(93, 30);
             button1.TabIndex = 0;
@@ -136,11 +137,23 @@
             label5.TabIndex = 10;
             label5.Text = "KILOMETROS";
             // 
+            // button2
+            // 
+            button2.Location = new Point(221, 358);
+            button2.Name = "button2";
+            button2.Size = new Size(93, 30);
+            button2.TabIndex = 11;
+            button2.Text = "CANCELAR";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // FrmCargarV
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(386, 440);
+            Controls.Add(button2);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -171,5 +184,6 @@
         private Label label3;
         private Label label4;
         private Label label5;
+        private Button button2;
     }
 }

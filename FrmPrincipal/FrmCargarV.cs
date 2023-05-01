@@ -28,12 +28,17 @@ namespace FrmPrincipal
                 var vehiculo = new Vehiculo(txtBox_patente.Text, txtBox_tipo.Text, txtBox_marca.Text, txtBox_modelo.Text, km);
                 Close();
             }
-            else 
+            else
             {
                 MessageBox.Show("DATOS ERRONEOS");
             }
 
-            
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
