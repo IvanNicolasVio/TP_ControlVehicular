@@ -1,3 +1,5 @@
+using FrmPrincipal.Clases;
+
 namespace FrmPrincipal
 {
     internal static class Program
@@ -11,7 +13,8 @@ namespace FrmPrincipal
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FrmContenedor());
+            Application.Run(new Form1());
+            
         }
     }
 }
