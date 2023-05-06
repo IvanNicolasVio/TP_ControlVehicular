@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FrmPrincipal.Clases
+namespace Clases
 {
-    internal class Vehiculo
+    public class Vehiculo
     {
         private string _dominio;
         private string _tipo;
         private string _marca;
         private string _modelo;
         private int _kilometros;
-        
+
 
         public string Dominio 
         {
@@ -44,6 +44,7 @@ namespace FrmPrincipal.Clases
             set { _kilometros = value; }
         }
 
+      
         public Vehiculo(string dominio, string tipo, string marca, string modelo, int kilometros)
         {
             Dominio = dominio;
@@ -52,6 +53,11 @@ namespace FrmPrincipal.Clases
             Modelo = modelo;
             Kilometros = kilometros;
             
+        }
+
+        public void AsignarPersona(string nombre, string apellido, int dni, int edad)
+        {
+            //var persona Persona = new Persona(nombre, apellido, dni, edad);
         }
 
         public string MostrarDetalles() 

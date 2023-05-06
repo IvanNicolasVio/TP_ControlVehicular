@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,25 @@ namespace FrmPrincipal
         public FrmLista()
         {
             InitializeComponent();
+        }
+
+        private void boton_mostrar_Click(object sender, EventArgs e)
+        {
+            var json = new AdministradorJson<List<Vehiculo>>("C:\\Users\\Iván\\source\\repos\\TP_ControlVehicular\\BibliotecaEntidades\\vehiculos.json");
+            var vehiculos = json.ObtenerDatos();
+
+
+
+            dataGridView1.DataSource = vehiculos;
+        }
+
+        private void boton_editar_Click(object sender, EventArgs e)
+        {
+            var json = new AdministradorJson<List<Vehiculo>>("C:\\Users\\Iván\\source\\repos\\TP_ControlVehicular\\BibliotecaEntidades\\vehiculos.json");
+            var vehiculos = json.ObtenerDatos();
+
+            vehiculos = (List<Vehiculo>)dataGridView1.DataSource;
+            json.Guardar(vehiculos);
         }
     }
 }

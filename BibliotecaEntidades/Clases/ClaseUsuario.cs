@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FrmPrincipal.Clases
+namespace Clases
 {
-    internal class Usuario
+    public class Usuario
     {
         private string _nombre;
         private string _contrasenia;

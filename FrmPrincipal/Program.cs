@@ -1,4 +1,4 @@
-using FrmPrincipal.Clases;
+using Clases;
 
 namespace FrmPrincipal
 {

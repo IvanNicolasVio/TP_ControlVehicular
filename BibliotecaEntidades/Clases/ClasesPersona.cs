@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FrmPrincipal.Clases
+namespace Clases
 {
-    internal class Persona
+    public class Persona
     {
         private string _nombre;
         private string _apellido;

@@ -1,4 +1,4 @@
-﻿using FrmPrincipal.Clases;
+﻿using Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,21 +21,20 @@ namespace FrmPrincipal
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<Usuario> usuarios = new List<Usuario>();
-            var usuario = new Usuario("Ivan", "1234", true);
-            var usuarioDos = new Usuario("Lautaro", "1234", false);
-            usuarios.Add(usuario);
-            usuarios.Add(usuarioDos);
+            var json = new AdministradorJson< List<Usuario> >("C:\\Users\\Iván\\source\\repos\\TP_ControlVehicular\\BibliotecaEntidades\\usuarios.json");
+            var usuarios = json.ObtenerDatos();
 
-            foreach(Usuario usario in usuarios) 
+            foreach(Usuario usuarioDeLista in usuarios) 
             {
-                if (txtBox_usuario.Text == usuario.Nombre && txtBox_contrasenia.Text == usuario.Contrasenia)
+                if (txtBox_usuario.Text == usuarioDeLista.Nombre && txtBox_contrasenia.Text == usuarioDeLista.Contrasenia)
                 {
                     var frmContendor = new FrmContenedor();
                     frmContendor.ShowDialog();
                     Hide();
+
+                    break;
                 }
-                break;
+                
             }
 
             

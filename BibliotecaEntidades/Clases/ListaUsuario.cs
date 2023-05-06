@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FrmPrincipal.Clases
+namespace Clases
 {
-    internal class ListaUsuario
+    public class ListaUsuario
     {
         private List<Usuario> _usuarios;
 

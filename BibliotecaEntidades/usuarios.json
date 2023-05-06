@@ -1,0 +1,19 @@
+
+  [
+    {
+      "Nombre": "Ivan",
+      "Contrasenia": "1234",
+      "EsAdmin": true
+    },
+    {
+      "Nombre": "Lautaro",
+      "Contrasenia": "9876",
+      "EsAdmin": false
+    },
+    {
+      "Nombre": "Hugo",
+      "Contrasenia": "chicago",
+      "EsAdmin": false
+    }
+  ]
+

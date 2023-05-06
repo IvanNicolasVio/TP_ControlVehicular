@@ -28,18 +28,60 @@
         /// </summary>
         private void InitializeComponent()
         {
+            dataGridView1 = new DataGridView();
+            boton_mostrar = new Button();
+            boton_editar = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToOrderColumns = true;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(12, 52);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowTemplate.Height = 25;
+            dataGridView1.Size = new Size(776, 386);
+            dataGridView1.TabIndex = 0;
+            // 
+            // boton_mostrar
+            // 
+            boton_mostrar.Location = new Point(12, 13);
+            boton_mostrar.Name = "boton_mostrar";
+            boton_mostrar.Size = new Size(132, 34);
+            boton_mostrar.TabIndex = 1;
+            boton_mostrar.Text = "MOSTRAR";
+            boton_mostrar.UseVisualStyleBackColor = true;
+            boton_mostrar.Click += boton_mostrar_Click;
+            // 
+            // boton_editar
+            // 
+            boton_editar.Location = new Point(165, 14);
+            boton_editar.Name = "boton_editar";
+            boton_editar.Size = new Size(132, 33);
+            boton_editar.TabIndex = 2;
+            boton_editar.Text = "EDITAR";
+            boton_editar.UseVisualStyleBackColor = true;
+            boton_editar.Click += boton_editar_Click;
             // 
             // FrmLista
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(boton_editar);
+            Controls.Add(boton_mostrar);
+            Controls.Add(dataGridView1);
             Name = "FrmLista";
             Text = "FrmLista";
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
+
+        private DataGridView dataGridView1;
+        private Button boton_mostrar;
+        private Button boton_editar;
     }
 }
