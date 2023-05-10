@@ -21,23 +21,14 @@ namespace FrmPrincipal
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var json = new AdministradorJson< List<Usuario> >("C:\\Users\\Iván\\source\\repos\\TP_ControlVehicular\\BibliotecaEntidades\\usuarios.json");
-            var usuarios = json.ObtenerDatos();
-
-            foreach(Usuario usuarioDeLista in usuarios) 
+            try {
+                HacerLogin();
+            }
+            catch 
             {
-                if (txtBox_usuario.Text == usuarioDeLista.Nombre && txtBox_contrasenia.Text == usuarioDeLista.Contrasenia)
-                {
-                    var frmContendor = new FrmContenedor();
-                    frmContendor.ShowDialog();
-                    Hide();
-
-                    break;
-                }
-                
+                MessageBox.Show("Error al ingresar");
             }
 
-            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -45,6 +36,17 @@ namespace FrmPrincipal
             Close();
         }
 
+        /// <summary>
+        /// Ingresa el usuario, si es valido, abre el form principal
+        /// </summary>
+        private void HacerLogin() 
+        {
+            var json = new ManejadorUsuarioJson();
+            var usuario = json.Login(txtBox_usuario.Text, txtBox_contrasenia.Text);
+            var formPrincipal = new FrmContenedor();
+            formPrincipal.ShowDialog();
+            Hide();
+        }
         
     }
 }

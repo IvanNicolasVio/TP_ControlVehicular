@@ -21,27 +21,16 @@ namespace FrmPrincipal
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int km;
-            bool esNumero = int.TryParse(txtBox_kilometros.Text, out km);
-            if (km > 0 && txtBox_marca.Text is string && txtBox_modelo.Text is string && txtBox_tipo.Text is string && (txtBox_patente.TextLength == 6 || txtBox_patente.TextLength == 7))
+            var vehiculos = new ManejadorVehiculosJson();
+            try
             {
-                var vehiculo = new Vehiculo(txtBox_patente.Text, txtBox_tipo.Text, txtBox_marca.Text, txtBox_modelo.Text, km);
-
-                var json = new AdministradorJson<List<Vehiculo>>("C:\\Users\\Iván\\source\\repos\\TP_ControlVehicular\\BibliotecaEntidades\\vehiculos.json");
-                var vehiculos = json.ObtenerDatos();
-
-                vehiculos.Add(vehiculo);
-                json.Guardar(vehiculos);
-
-
+                vehiculos.IngresarVehiculo(txtBox_patente.Text, txtBox_tipo.Text, txtBox_marca.Text, txtBox_modelo.Text, txtBox_kilometros.Text);
                 Close();
             }
-            else
+            catch 
             {
-                MessageBox.Show("DATOS ERRONEOS");
+                MessageBox.Show("Datos erroneos");
             }
-
-
         }
 
         private void button2_Click(object sender, EventArgs e)

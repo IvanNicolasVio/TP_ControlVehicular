@@ -1,10 +1,14 @@
+using Clases;
+
 namespace FrmPrincipal
 {
     public partial class FrmContenedor : Form
     {
+
         public FrmContenedor()
         {
             InitializeComponent();
+            organizarFormulario();
         }
 
         private void listaVehiculosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -20,6 +24,12 @@ namespace FrmPrincipal
             formCargarV.ShowDialog();
         }
 
+        private void organizarFormulario() 
+        {
+            var json = new ManejadorUsuarioJson();
+            var usuarios = json.ObtenerDatos();
 
+            
+        }
     }
 }
