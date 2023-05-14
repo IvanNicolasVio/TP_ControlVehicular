@@ -28,6 +28,7 @@ namespace FrmPrincipal
         {
             var json = new ManejadorUsuarioJson();
             var usuarios = json.ObtenerDatos();
+            json.MostrarLabels(txt_usuario.Text,txt_tipoUsuario.Text);
 
             
         }

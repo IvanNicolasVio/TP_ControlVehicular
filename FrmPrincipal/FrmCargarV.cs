@@ -24,10 +24,10 @@ namespace FrmPrincipal
             var vehiculos = new ManejadorVehiculosJson();
             try
             {
-                vehiculos.IngresarVehiculo(txtBox_patente.Text, txtBox_tipo.Text, txtBox_marca.Text, txtBox_modelo.Text, txtBox_kilometros.Text);
+                vehiculos.IngresarVehiculo(txtBox_patente.Text, box_tipo.Text, box_marca.Text, txtBox_modelo.Text, txtBox_kilometros.Text);
                 Close();
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Datos erroneos");
             }

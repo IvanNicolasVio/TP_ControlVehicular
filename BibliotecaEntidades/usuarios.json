@@ -3,17 +3,17 @@
     {
       "Nombre": "Ivan",
       "Contrasenia": "1234",
-      "EsAdmin": true
+      "Administrador": true
     },
     {
       "Nombre": "Lautaro",
       "Contrasenia": "9876",
-      "EsAdmin": false
+      "Administrador": false
     },
     {
       "Nombre": "Hugo",
       "Contrasenia": "chicago",
-      "EsAdmin": false
+      "Administrador": false
     }
   ]
 

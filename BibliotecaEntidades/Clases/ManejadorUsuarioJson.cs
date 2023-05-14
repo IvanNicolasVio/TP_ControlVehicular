@@ -51,13 +51,13 @@ namespace Clases
 
                     if (usuario.validarAdministrador())
                     {
-                        //txt_tipoUsuario.Text = $"Tipo de usuario: Administrador";
-                        //txt_tipoUsuario.ForeColor = Color.Green;
+                        nombre = $"Tipo de usuario: Administrador";
+                        
                     }
                     else
                     {
-                        //txt_tipoUsuario.Text = $"Tipo de usuario: Comun";
-//txt_tipoUsuario.ForeColor = Color.Black;
+                        tipoUsuario = $"Tipo de usuario: Comun";
+                        
                     }
 
                     break;

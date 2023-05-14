@@ -30,16 +30,16 @@
         {
             button1 = new Button();
             txtBox_patente = new TextBox();
-            txtBox_tipo = new TextBox();
             label1 = new Label();
             label2 = new Label();
             txtBox_kilometros = new TextBox();
             txtBox_modelo = new TextBox();
-            txtBox_marca = new TextBox();
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
             button2 = new Button();
+            box_marca = new ComboBox();
+            box_tipo = new ComboBox();
             SuspendLayout();
             // 
             // button1
@@ -59,14 +59,6 @@
             txtBox_patente.PlaceholderText = "Ingrese el dominio o patente";
             txtBox_patente.Size = new Size(272, 23);
             txtBox_patente.TabIndex = 1;
-            // 
-            // txtBox_tipo
-            // 
-            txtBox_tipo.Location = new Point(42, 101);
-            txtBox_tipo.Name = "txtBox_tipo";
-            txtBox_tipo.PlaceholderText = "Ingrese el tipo de vehiculo. Ej Camion";
-            txtBox_tipo.Size = new Size(272, 23);
-            txtBox_tipo.TabIndex = 2;
             // 
             // label1
             // 
@@ -98,17 +90,9 @@
             // 
             txtBox_modelo.Location = new Point(42, 214);
             txtBox_modelo.Name = "txtBox_modelo";
-            txtBox_modelo.PlaceholderText = "Ingrese el modelo del vehiculo. Ej Fiesta";
+            txtBox_modelo.PlaceholderText = "Ingrese el año del vehiculo. Ej 2009";
             txtBox_modelo.Size = new Size(272, 23);
             txtBox_modelo.TabIndex = 6;
-            // 
-            // txtBox_marca
-            // 
-            txtBox_marca.Location = new Point(42, 162);
-            txtBox_marca.Name = "txtBox_marca";
-            txtBox_marca.PlaceholderText = "Ingrese la marca del vehiculo. Ej Ford";
-            txtBox_marca.Size = new Size(272, 23);
-            txtBox_marca.TabIndex = 7;
             // 
             // label3
             // 
@@ -124,9 +108,9 @@
             label4.AutoSize = true;
             label4.Location = new Point(42, 196);
             label4.Name = "label4";
-            label4.Size = new Size(56, 15);
+            label4.Size = new Size(33, 15);
             label4.TabIndex = 9;
-            label4.Text = "MODELO";
+            label4.Text = "AÑO";
             // 
             // label5
             // 
@@ -147,22 +131,42 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // box_marca
+            // 
+            box_marca.DropDownStyle = ComboBoxStyle.DropDownList;
+            box_marca.FormattingEnabled = true;
+            box_marca.Items.AddRange(new object[] { "Peugeot", "Ford", "Toyota", "Fiat", "Chevrolet", "Volkswagen" });
+            box_marca.Location = new Point(42, 162);
+            box_marca.Name = "box_marca";
+            box_marca.Size = new Size(272, 23);
+            box_marca.TabIndex = 12;
+            // 
+            // box_tipo
+            // 
+            box_tipo.DropDownStyle = ComboBoxStyle.DropDownList;
+            box_tipo.FormattingEnabled = true;
+            box_tipo.Items.AddRange(new object[] { "Camioneta", "Auto", "Camion" });
+            box_tipo.Location = new Point(42, 101);
+            box_tipo.Name = "box_tipo";
+            box_tipo.Size = new Size(272, 23);
+            box_tipo.TabIndex = 13;
+            // 
             // FrmCargarV
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(386, 440);
+            Controls.Add(box_tipo);
+            Controls.Add(box_marca);
             Controls.Add(button2);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
-            Controls.Add(txtBox_marca);
             Controls.Add(txtBox_modelo);
             Controls.Add(txtBox_kilometros);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(txtBox_tipo);
             Controls.Add(txtBox_patente);
             Controls.Add(button1);
             Name = "FrmCargarV";
@@ -175,7 +179,6 @@
 
         private Button button1;
         private TextBox txtBox_patente;
-        private TextBox txtBox_tipo;
         private Label label1;
         private Label label2;
         private TextBox txtBox_kilometros;
@@ -185,5 +188,7 @@
         private Label label4;
         private Label label5;
         private Button button2;
+        private ComboBox box_marca;
+        private ComboBox box_tipo;
     }
 }
