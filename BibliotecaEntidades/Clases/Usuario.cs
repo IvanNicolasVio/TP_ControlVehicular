@@ -49,19 +49,19 @@ namespace Clases
         {
             if (Administrador)
             {
-                return true;
+                return Administrador;
             }
             else { return false; }
         }
 
         public bool validarUsuarioActivo()
         {
-            if (Activo) { return true; } else { return false; }
+            if (Activo) { return Activo; } else { return false; }
         }
 
         public void cambiarActivo() 
         {
-            if (Activo) { Activo = false; }else if(!Activo) { Activo = true; }
+            Activo = !Activo;
         }
 
         private void editarUsuario(Usuario usuario,string nombre,string contrasenia,bool administrador) 

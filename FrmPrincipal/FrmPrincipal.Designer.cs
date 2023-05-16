@@ -32,17 +32,17 @@
             menuToolStripMenuItem = new ToolStripMenuItem();
             listaVehiculosToolStripMenuItem = new ToolStripMenuItem();
             nuevoVehiculoToolStripMenuItem = new ToolStripMenuItem();
-            boton_busqueda = new Button();
-            txt_tipoUsuario = new Label();
-            txtBox_busqueda = new TextBox();
-            comboBox_opciones = new ComboBox();
-            txt_usuario = new Label();
             choferesToolStripMenuItem = new ToolStripMenuItem();
             listaDeChoferesToolStripMenuItem = new ToolStripMenuItem();
             nuevoChoferToolStripMenuItem = new ToolStripMenuItem();
             administrarUsuariosToolStripMenuItem = new ToolStripMenuItem();
             crearUsuarioToolStripMenuItem = new ToolStripMenuItem();
             modificarUsuarioToolStripMenuItem = new ToolStripMenuItem();
+            boton_busqueda = new Button();
+            txt_tipoUsuario = new Label();
+            txtBox_busqueda = new TextBox();
+            comboBox_opciones = new ComboBox();
+            txt_usuario = new Label();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -65,16 +65,56 @@
             // listaVehiculosToolStripMenuItem
             // 
             listaVehiculosToolStripMenuItem.Name = "listaVehiculosToolStripMenuItem";
-            listaVehiculosToolStripMenuItem.Size = new Size(180, 22);
+            listaVehiculosToolStripMenuItem.Size = new Size(167, 22);
             listaVehiculosToolStripMenuItem.Text = "Lista de vehiculos";
             listaVehiculosToolStripMenuItem.Click += listaVehiculosToolStripMenuItem_Click;
             // 
             // nuevoVehiculoToolStripMenuItem
             // 
             nuevoVehiculoToolStripMenuItem.Name = "nuevoVehiculoToolStripMenuItem";
-            nuevoVehiculoToolStripMenuItem.Size = new Size(180, 22);
+            nuevoVehiculoToolStripMenuItem.Size = new Size(167, 22);
             nuevoVehiculoToolStripMenuItem.Text = "Nuevo vehiculo";
             nuevoVehiculoToolStripMenuItem.Click += nuevoVehiculoToolStripMenuItem_Click;
+            // 
+            // choferesToolStripMenuItem
+            // 
+            choferesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listaDeChoferesToolStripMenuItem, nuevoChoferToolStripMenuItem });
+            choferesToolStripMenuItem.Name = "choferesToolStripMenuItem";
+            choferesToolStripMenuItem.Size = new Size(66, 20);
+            choferesToolStripMenuItem.Text = "Choferes";
+            // 
+            // listaDeChoferesToolStripMenuItem
+            // 
+            listaDeChoferesToolStripMenuItem.Name = "listaDeChoferesToolStripMenuItem";
+            listaDeChoferesToolStripMenuItem.Size = new Size(180, 22);
+            listaDeChoferesToolStripMenuItem.Text = "Lista de choferes";
+            listaDeChoferesToolStripMenuItem.Click += listaDeChoferesToolStripMenuItem_Click;
+            // 
+            // nuevoChoferToolStripMenuItem
+            // 
+            nuevoChoferToolStripMenuItem.Name = "nuevoChoferToolStripMenuItem";
+            nuevoChoferToolStripMenuItem.Size = new Size(180, 22);
+            nuevoChoferToolStripMenuItem.Text = "Nuevo chofer";
+            nuevoChoferToolStripMenuItem.Click += nuevoChoferToolStripMenuItem_Click;
+            // 
+            // administrarUsuariosToolStripMenuItem
+            // 
+            administrarUsuariosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { crearUsuarioToolStripMenuItem, modificarUsuarioToolStripMenuItem });
+            administrarUsuariosToolStripMenuItem.Name = "administrarUsuariosToolStripMenuItem";
+            administrarUsuariosToolStripMenuItem.Size = new Size(128, 20);
+            administrarUsuariosToolStripMenuItem.Text = "Administrar usuarios";
+            // 
+            // crearUsuarioToolStripMenuItem
+            // 
+            crearUsuarioToolStripMenuItem.Name = "crearUsuarioToolStripMenuItem";
+            crearUsuarioToolStripMenuItem.Size = new Size(167, 22);
+            crearUsuarioToolStripMenuItem.Text = "Crear usuario";
+            // 
+            // modificarUsuarioToolStripMenuItem
+            // 
+            modificarUsuarioToolStripMenuItem.Name = "modificarUsuarioToolStripMenuItem";
+            modificarUsuarioToolStripMenuItem.Size = new Size(167, 22);
+            modificarUsuarioToolStripMenuItem.Text = "Modificar usuario";
             // 
             // boton_busqueda
             // 
@@ -119,44 +159,6 @@
             txt_usuario.Size = new Size(53, 15);
             txt_usuario.TabIndex = 11;
             txt_usuario.Text = "Usuario: ";
-            // 
-            // choferesToolStripMenuItem
-            // 
-            choferesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { listaDeChoferesToolStripMenuItem, nuevoChoferToolStripMenuItem });
-            choferesToolStripMenuItem.Name = "choferesToolStripMenuItem";
-            choferesToolStripMenuItem.Size = new Size(66, 20);
-            choferesToolStripMenuItem.Text = "Choferes";
-            // 
-            // listaDeChoferesToolStripMenuItem
-            // 
-            listaDeChoferesToolStripMenuItem.Name = "listaDeChoferesToolStripMenuItem";
-            listaDeChoferesToolStripMenuItem.Size = new Size(180, 22);
-            listaDeChoferesToolStripMenuItem.Text = "Lista de choferes";
-            // 
-            // nuevoChoferToolStripMenuItem
-            // 
-            nuevoChoferToolStripMenuItem.Name = "nuevoChoferToolStripMenuItem";
-            nuevoChoferToolStripMenuItem.Size = new Size(180, 22);
-            nuevoChoferToolStripMenuItem.Text = "Nuevo chofer";
-            // 
-            // administrarUsuariosToolStripMenuItem
-            // 
-            administrarUsuariosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { crearUsuarioToolStripMenuItem, modificarUsuarioToolStripMenuItem });
-            administrarUsuariosToolStripMenuItem.Name = "administrarUsuariosToolStripMenuItem";
-            administrarUsuariosToolStripMenuItem.Size = new Size(128, 20);
-            administrarUsuariosToolStripMenuItem.Text = "Administrar usuarios";
-            // 
-            // crearUsuarioToolStripMenuItem
-            // 
-            crearUsuarioToolStripMenuItem.Name = "crearUsuarioToolStripMenuItem";
-            crearUsuarioToolStripMenuItem.Size = new Size(180, 22);
-            crearUsuarioToolStripMenuItem.Text = "Crear usuario";
-            // 
-            // modificarUsuarioToolStripMenuItem
-            // 
-            modificarUsuarioToolStripMenuItem.Name = "modificarUsuarioToolStripMenuItem";
-            modificarUsuarioToolStripMenuItem.Size = new Size(180, 22);
-            modificarUsuarioToolStripMenuItem.Text = "Modificar usuario";
             // 
             // FrmContenedor
             // 

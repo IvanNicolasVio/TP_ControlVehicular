@@ -31,6 +31,7 @@
             dataGridView1 = new DataGridView();
             boton_mostrar = new Button();
             boton_editar = new Button();
+            boton_borrar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -56,19 +57,30 @@
             // 
             // boton_editar
             // 
-            boton_editar.Location = new Point(165, 14);
+            boton_editar.Location = new Point(318, 14);
             boton_editar.Name = "boton_editar";
             boton_editar.Size = new Size(132, 33);
             boton_editar.TabIndex = 2;
-            boton_editar.Text = "EDITAR";
+            boton_editar.Text = "GUARDAR CAMBIOS";
             boton_editar.UseVisualStyleBackColor = true;
             boton_editar.Click += boton_editar_Click;
+            // 
+            // boton_borrar
+            // 
+            boton_borrar.Location = new Point(164, 14);
+            boton_borrar.Name = "boton_borrar";
+            boton_borrar.Size = new Size(132, 32);
+            boton_borrar.TabIndex = 3;
+            boton_borrar.Text = "BORRAR FILA";
+            boton_borrar.UseVisualStyleBackColor = true;
+            boton_borrar.Click += boton_borrar_Click;
             // 
             // FrmLista
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(boton_borrar);
             Controls.Add(boton_editar);
             Controls.Add(boton_mostrar);
             Controls.Add(dataGridView1);
@@ -83,5 +95,6 @@
         private DataGridView dataGridView1;
         private Button boton_mostrar;
         private Button boton_editar;
+        private Button boton_borrar;
     }
 }

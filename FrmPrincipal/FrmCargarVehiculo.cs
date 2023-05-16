@@ -27,9 +27,9 @@ namespace FrmPrincipal
                 vehiculos.IngresarVehiculo(txtBox_patente.Text, box_tipo.Text, box_marca.Text, txtBox_modelo.Text, txtBox_kilometros.Text);
                 Close();
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Datos erroneos");
+                MessageBox.Show(ex.Message);
             }
         }
 

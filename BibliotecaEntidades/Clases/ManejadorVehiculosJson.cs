@@ -17,19 +17,16 @@ namespace Clases
         public void IngresarVehiculo(string dominio,string tipo,string marca,string modelo,string kilometros) 
         {
             var vehiculos = ObtenerDatos();
-            int km = Validador.ValidarKilometros(kilometros);
-           
-            if (km > 0 && Validador.ValidarAnio(modelo) && Validador.ValidarPatente(dominio))
+            var km = Validador.ValidarKilometros(kilometros);
+            Validador.ValidarAnio(modelo);
+            if (!Validador.ValidarPatente(dominio))
             {
-                var vehiculo = new Vehiculo(dominio, tipo, marca, modelo, km);
-                vehiculos.Add(vehiculo);
-                Guardar(vehiculos);
+                throw new Exception("Patente invalida");
+            }
+            var vehiculo = new Vehiculo(dominio, tipo, marca, modelo, km);
+            vehiculos.Add(vehiculo);
+            Guardar(vehiculos);
 
-            }
-            else
-            {
-                throw new Exception("Datos erroneos");
-            }
         }
     }
 }

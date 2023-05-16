@@ -1,7 +1,7 @@
 [
   {
     "Dominio": "OWY767",
-    "Tipo": "camion",
+    "Tipo": "Auto",
     "Marca": "volkswagen",
     "Modelo": "2007",
     "Kilometros": 150000
@@ -82,5 +82,19 @@
     "Marca": "Toyota",
     "Modelo": "2004",
     "Kilometros": 5000
+  },
+  {
+    "Dominio": "OW456OL",
+    "Tipo": "Camioneta",
+    "Marca": "Volkswagen",
+    "Modelo": "2023",
+    "Kilometros": 5000
+  },
+  {
+    "Dominio": "LO489LO",
+    "Tipo": "Camion",
+    "Marca": "Ford",
+    "Modelo": "2020",
+    "Kilometros": 2000
   }
 ]

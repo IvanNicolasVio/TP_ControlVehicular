@@ -10,6 +10,8 @@ namespace Clases
 {
     public class ManejadorUsuarioJson : ManejadorJson<Usuario>
     {
+
+        public static Usuario? UsuarioActivo { get; private set; }
         public ManejadorUsuarioJson() : base("C:\\Users\\Iván\\source\\repos\\TP_ControlVehicular\\BibliotecaEntidades\\usuarios.json")
         {
 
@@ -30,7 +32,7 @@ namespace Clases
             {
                 if (nombre == usuarioDeLista.Nombre && contrasenia == usuarioDeLista.Contrasenia)
                 {
-                    usuarioDeLista.cambiarActivo();
+                    UsuarioActivo = usuarioDeLista;
                     return usuarioDeLista;
                 
                 }
@@ -41,30 +43,27 @@ namespace Clases
 
         public void MostrarLabels(string nombre,string tipoUsuario) 
         {
-            var usuarios = ObtenerDatos();
 
-            foreach (Usuario usuario in usuarios)
+            var usuario = UsuarioActivo;
+
+            nombre = $"Usuario: {usuario!.Nombre}";
+
+            if (usuario.validarAdministrador())
             {
-                if (usuario.validarUsuarioActivo())
-                {
-                    nombre = $"Usuario: {usuario.Nombre}";
-
-                    if (usuario.validarAdministrador())
-                    {
-                        nombre = $"Tipo de usuario: Administrador";
+                nombre = $"Tipo de usuario: Administrador";
                         
-                    }
-                    else
-                    {
-                        tipoUsuario = $"Tipo de usuario: Comun";
-                        
-                    }
-
-                    break;
-                }
-
-
             }
+            else
+            {
+                tipoUsuario = $"Tipo de usuario: Comun";
+                        
+            }
+
+               
+                
+
+
+                
         }
     }
 }
