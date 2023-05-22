@@ -38,14 +38,25 @@ namespace FrmPrincipal
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
+                var json = new ManejadorChoferJson();
+                var choferes = json.ObtenerDatos();
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
                 Persona selectedData = (Persona)selectedRow.DataBoundItem;
-                ((List<Persona>)dataGridView1.DataSource).Remove(selectedData);
-                dataGridView1.Refresh();
+                foreach (var chofer in choferes) 
+                {
+                    if(chofer == selectedData) 
+                    {
+                        choferes.Remove(chofer);
+                        break;
+                    }
+                }
+                
+                dataGridView1.DataSource = choferes;
             }
+            
         }
 
-        private void OrdenarFrm()
+        internal void OrdenarFrm()
         {
             if (ManejadorUsuarioJson.UsuarioActivo!.Administrador)
             {

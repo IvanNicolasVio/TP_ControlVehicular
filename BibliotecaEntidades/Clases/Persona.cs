@@ -12,6 +12,8 @@ namespace Clases
         private string _apellido;
         private int _dni;
         private int _edad;
+        private bool _activo;
+        
 
         public Persona(string nombre, string apellido, int dni, int edad)
         {
@@ -19,6 +21,13 @@ namespace Clases
             Apellido = apellido;
             DNI = dni;
             Edad = edad;
+            Activo = false;
+        }
+
+        public bool Activo
+        {
+            get { return _activo; }
+            set { _activo = value; }
         }
 
         public string Nombre 
@@ -45,24 +54,37 @@ namespace Clases
             set { _edad = value; }
         }
 
-        public string Saludar() 
+        /// <summary>
+        /// Devuelve un string con el nombre y el apellido
+        /// </summary>
+        /// <returns></returns>
+        public string Presentarse() 
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"Hola! Mi nombre es {Nombre} {Apellido} ");
-            sb.AppendLine($"y tengo {Edad} años");
+            sb.AppendLine($"{Nombre} {Apellido} ");
             return sb.ToString();
+        }
+
+        public static bool operator ==(Persona a, Persona b)
+        {
+            if (a.DNI == b.DNI)
+            {
+                return true;
+            }
+            else { return false; }
+
+        }
+
+        public static bool operator !=(Persona a, Persona b)
+        {
+            if (a.DNI != b.DNI)
+            {
+                return false;
+            }
+            else { return true; }
+
         }
     }
 
-    //internal class chofer : persona 
-    //{
-        //private string _licencia;
-        //private string _legajo;
-
-       // public chofer(string licencia, string legajo)
-        //{
-//_licencia = licencia;
-          //  _legajo = legajo;
-       // }
-   // }
+    
 }

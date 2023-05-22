@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCargarChofer));
             boton_cargar = new Button();
             boton_cancelar = new Button();
             label_nombre = new Label();
@@ -42,6 +43,7 @@
             // 
             // boton_cargar
             // 
+            boton_cargar.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
             boton_cargar.Location = new Point(33, 365);
             boton_cargar.Name = "boton_cargar";
             boton_cargar.Size = new Size(93, 34);
@@ -52,47 +54,57 @@
             // 
             // boton_cancelar
             // 
+            boton_cancelar.BackColor = SystemColors.Control;
+            boton_cancelar.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
             boton_cancelar.Location = new Point(169, 365);
             boton_cancelar.Name = "boton_cancelar";
             boton_cancelar.Size = new Size(93, 34);
             boton_cancelar.TabIndex = 1;
             boton_cancelar.Text = "CANCELAR";
-            boton_cancelar.UseVisualStyleBackColor = true;
+            boton_cancelar.UseVisualStyleBackColor = false;
             boton_cancelar.Click += boton_cancelar_Click;
             // 
             // label_nombre
             // 
             label_nombre.AutoSize = true;
+            label_nombre.BackColor = Color.Transparent;
+            label_nombre.Font = new Font("Impact", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             label_nombre.Location = new Point(33, 18);
             label_nombre.Name = "label_nombre";
-            label_nombre.Size = new Size(56, 15);
+            label_nombre.Size = new Size(73, 23);
             label_nombre.TabIndex = 2;
             label_nombre.Text = "NOMBRE";
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Impact", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             label2.Location = new Point(33, 84);
             label2.Name = "label2";
-            label2.Size = new Size(60, 15);
+            label2.Size = new Size(77, 23);
             label2.TabIndex = 3;
             label2.Text = "APELLIDO";
             // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Impact", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             label3.Location = new Point(33, 161);
             label3.Name = "label3";
-            label3.Size = new Size(27, 15);
+            label3.Size = new Size(36, 23);
             label3.TabIndex = 4;
             label3.Text = "DNI";
             // 
             // label4
             // 
             label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
+            label4.Font = new Font("Impact", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             label4.Location = new Point(33, 245);
             label4.Name = "label4";
-            label4.Size = new Size(37, 15);
+            label4.Size = new Size(49, 23);
             label4.TabIndex = 5;
             label4.Text = "EDAD";
             // 
@@ -132,6 +144,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(307, 443);
             Controls.Add(textBox_edad);
             Controls.Add(textBox_dni);
@@ -143,8 +156,10 @@
             Controls.Add(label_nombre);
             Controls.Add(boton_cancelar);
             Controls.Add(boton_cargar);
+            MaximizeBox = false;
             Name = "FrmCargarChofer";
-            Text = "FrmCargarChofer";
+            ShowIcon = false;
+            Text = "Cargar chofer";
             ResumeLayout(false);
             PerformLayout();
         }

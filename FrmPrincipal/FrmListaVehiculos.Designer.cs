@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLista));
             dataGridView1 = new DataGridView();
             boton_mostrar = new Button();
             boton_editar = new Button();
@@ -38,7 +39,9 @@
             // dataGridView1
             // 
             dataGridView1.AllowUserToOrderColumns = true;
+            dataGridView1.BackgroundColor = Color.White;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.GridColor = SystemColors.ActiveCaption;
             dataGridView1.Location = new Point(12, 52);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
@@ -47,6 +50,7 @@
             // 
             // boton_mostrar
             // 
+            boton_mostrar.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
             boton_mostrar.Location = new Point(12, 13);
             boton_mostrar.Name = "boton_mostrar";
             boton_mostrar.Size = new Size(132, 34);
@@ -57,9 +61,10 @@
             // 
             // boton_editar
             // 
+            boton_editar.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
             boton_editar.Location = new Point(318, 14);
             boton_editar.Name = "boton_editar";
-            boton_editar.Size = new Size(132, 33);
+            boton_editar.Size = new Size(198, 33);
             boton_editar.TabIndex = 2;
             boton_editar.Text = "GUARDAR CAMBIOS";
             boton_editar.UseVisualStyleBackColor = true;
@@ -67,6 +72,7 @@
             // 
             // boton_borrar
             // 
+            boton_borrar.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
             boton_borrar.Location = new Point(164, 14);
             boton_borrar.Name = "boton_borrar";
             boton_borrar.Size = new Size(132, 32);
@@ -79,13 +85,14 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(800, 450);
             Controls.Add(boton_borrar);
             Controls.Add(boton_editar);
             Controls.Add(boton_mostrar);
             Controls.Add(dataGridView1);
             Name = "FrmLista";
-            Text = "FrmLista";
+            ShowIcon = false;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }

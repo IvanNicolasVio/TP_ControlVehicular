@@ -58,10 +58,20 @@ namespace FrmPrincipal
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
+                var json = new ManejadorVehiculosJson();
+                var vehiculos = json.ObtenerDatos();
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
                 Vehiculo selectedData = (Vehiculo)selectedRow.DataBoundItem;
-                ((List<Vehiculo>)dataGridView1.DataSource).Remove(selectedData);
-                dataGridView1.Refresh();
+                foreach (var vehiculo in vehiculos)
+                {
+                    if (vehiculo == selectedData)
+                    {
+                        vehiculos.Remove(vehiculo);
+                        break;
+                    }
+                }
+
+                dataGridView1.DataSource = vehiculos;
             }
         }
     }

@@ -45,6 +45,10 @@ namespace Clases
             Activo = false;
         }
 
+        /// <summary>
+        /// Valida si el usuario es administrador
+        /// </summary>
+        /// <returns></returns>
         public bool validarAdministrador()
         {
             if (Administrador)
@@ -54,21 +58,14 @@ namespace Clases
             else { return false; }
         }
 
-        public bool validarUsuarioActivo()
+        public void editarUsuario(string nombre,string contrasenia,string adm) 
         {
-            if (Activo) { return Activo; } else { return false; }
-        }
-
-        public void cambiarActivo() 
-        {
-            Activo = !Activo;
-        }
-
-        private void editarUsuario(Usuario usuario,string nombre,string contrasenia,bool administrador) 
-        {
-            usuario.Nombre = nombre;
-            usuario.Contrasenia = contrasenia;
-            usuario.Administrador = administrador;
+            Validador.ValidarUsuario(nombre);
+            Validador.ValidarContrasenia(contrasenia);
+            var administrador = Validador.ValidarAdministrador(adm);
+            this.Nombre = nombre;
+            this.Contrasenia = contrasenia;
+            this.Administrador = administrador;   
         }
 
         public static bool operator ==(Usuario a, Usuario b) 

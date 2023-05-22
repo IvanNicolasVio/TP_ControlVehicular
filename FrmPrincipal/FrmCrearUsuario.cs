@@ -9,22 +9,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace FrmPrincipal
 {
-    public partial class FrmCargarV : Form
+    public partial class FrmCrearUsuario : Form
     {
-        public FrmCargarV()
+        public FrmCrearUsuario()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void boton_crear_Click(object sender, EventArgs e)
         {
-            var vehiculos = new ManejadorVehiculosJson();
             try
             {
-                vehiculos.IngresarVehiculo(txtBox_patente.Text, box_tipo.Text, box_marca.Text, txtBox_modelo.Text, txtBox_kilometros.Text);
+                var usuarios = new ManejadorUsuarioJson();
+                usuarios.CrearUsuario(textBox_nombreUsuario.Text, textBox_contrasenia.Text, comboBox_administrador.Text);
                 Close();
             }
             catch (Exception ex)
@@ -33,11 +32,9 @@ namespace FrmPrincipal
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void boton_cancelar_Click(object sender, EventArgs e)
         {
             Close();
         }
-
-
     }
 }

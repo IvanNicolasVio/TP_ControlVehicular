@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCargarV));
             button1 = new Button();
             txtBox_patente = new TextBox();
             label1 = new Label();
@@ -44,6 +45,7 @@
             // 
             // button1
             // 
+            button1.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
             button1.Location = new Point(42, 358);
             button1.Name = "button1";
             button1.Size = new Size(93, 30);
@@ -63,24 +65,28 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Impact", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             label1.Location = new Point(42, 83);
             label1.Name = "label1";
-            label1.Size = new Size(32, 15);
+            label1.Size = new Size(44, 23);
             label1.TabIndex = 3;
             label1.Text = "TIPO";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(42, 29);
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Impact", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(42, 21);
             label2.Name = "label2";
-            label2.Size = new Size(59, 15);
+            label2.Size = new Size(75, 23);
             label2.TabIndex = 4;
             label2.Text = "DOMINIO";
             // 
             // txtBox_kilometros
             // 
-            txtBox_kilometros.Location = new Point(42, 266);
+            txtBox_kilometros.Location = new Point(42, 297);
             txtBox_kilometros.Name = "txtBox_kilometros";
             txtBox_kilometros.PlaceholderText = "Ingrese los kilometros actuales del vehiculo";
             txtBox_kilometros.Size = new Size(272, 23);
@@ -88,7 +94,7 @@
             // 
             // txtBox_modelo
             // 
-            txtBox_modelo.Location = new Point(42, 214);
+            txtBox_modelo.Location = new Point(42, 233);
             txtBox_modelo.Name = "txtBox_modelo";
             txtBox_modelo.PlaceholderText = "Ingrese el año del vehiculo. Ej 2009";
             txtBox_modelo.Size = new Size(272, 23);
@@ -97,32 +103,39 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Impact", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             label3.Location = new Point(42, 144);
             label3.Name = "label3";
-            label3.Size = new Size(49, 15);
+            label3.Size = new Size(63, 23);
             label3.TabIndex = 8;
             label3.Text = "MARCA";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(42, 196);
+            label4.BackColor = Color.Transparent;
+            label4.Font = new Font("Impact", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(42, 207);
             label4.Name = "label4";
-            label4.Size = new Size(33, 15);
+            label4.Size = new Size(39, 23);
             label4.TabIndex = 9;
             label4.Text = "AÑO";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(42, 248);
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Impact", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(42, 271);
             label5.Name = "label5";
-            label5.Size = new Size(77, 15);
+            label5.Size = new Size(103, 23);
             label5.TabIndex = 10;
             label5.Text = "KILOMETROS";
             // 
             // button2
             // 
+            button2.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
             button2.Location = new Point(221, 358);
             button2.Name = "button2";
             button2.Size = new Size(93, 30);
@@ -136,7 +149,7 @@
             box_marca.DropDownStyle = ComboBoxStyle.DropDownList;
             box_marca.FormattingEnabled = true;
             box_marca.Items.AddRange(new object[] { "Peugeot", "Ford", "Toyota", "Fiat", "Chevrolet", "Volkswagen" });
-            box_marca.Location = new Point(42, 162);
+            box_marca.Location = new Point(42, 170);
             box_marca.Name = "box_marca";
             box_marca.Size = new Size(272, 23);
             box_marca.TabIndex = 12;
@@ -146,7 +159,7 @@
             box_tipo.DropDownStyle = ComboBoxStyle.DropDownList;
             box_tipo.FormattingEnabled = true;
             box_tipo.Items.AddRange(new object[] { "Camioneta", "Auto", "Camion" });
-            box_tipo.Location = new Point(42, 101);
+            box_tipo.Location = new Point(42, 109);
             box_tipo.Name = "box_tipo";
             box_tipo.Size = new Size(272, 23);
             box_tipo.TabIndex = 13;
@@ -156,7 +169,8 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(386, 440);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            ClientSize = new Size(386, 417);
             Controls.Add(box_tipo);
             Controls.Add(box_marca);
             Controls.Add(button2);
@@ -169,8 +183,10 @@
             Controls.Add(label1);
             Controls.Add(txtBox_patente);
             Controls.Add(button1);
+            MaximizeBox = false;
             Name = "FrmCargarV";
-            Text = "FrmCargarV";
+            ShowIcon = false;
+            Text = "Cargar vehiculo";
             ResumeLayout(false);
             PerformLayout();
         }

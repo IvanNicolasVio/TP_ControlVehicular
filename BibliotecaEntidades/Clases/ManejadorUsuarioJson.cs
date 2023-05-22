@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -41,6 +42,11 @@ namespace Clases
             throw new Exception("Usuario no encontrado");
         }
 
+        /// <summary>
+        /// Crea unas labels segun un usuario activo
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="tipoUsuario"></param>
         public void MostrarLabels(string nombre,string tipoUsuario) 
         {
 
@@ -56,14 +62,26 @@ namespace Clases
             else
             {
                 tipoUsuario = $"Tipo de usuario: Comun";
-                        
             }
-
-               
-                
+        }
 
 
-                
+        /// <summary>
+        /// Crea un objeto Usuario y lo guarda en un JSON
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="contrasenia"></param>
+        /// <param name="administrador"></param>
+        public void CrearUsuario(string nombre, string contrasenia, string administrador) 
+        {
+            var usuarios = ObtenerDatos();
+            Validador.ValidarUsuario(nombre);
+            Validador.ValidarContrasenia(contrasenia);
+            var adm = Validador.ValidarAdministrador(administrador);
+            var usuario = new Usuario(nombre, contrasenia, adm);
+            Validador.VerificarUsuarios(usuario, usuarios);
+            usuarios.Add(usuario);
+            Guardar(usuarios);
         }
     }
 }

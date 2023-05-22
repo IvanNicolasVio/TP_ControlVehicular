@@ -16,6 +16,13 @@ namespace Clases
 
         }
 
+        /// <summary>
+        /// Crea un chofer y lo agrega a la lista de JSON
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="dni"></param>
+        /// <param name="edad"></param>
         public void IngresarChofer(string nombre, string apellido, string dni, string edad)
         {
             var choferes = ObtenerDatos();
@@ -23,10 +30,33 @@ namespace Clases
             Validador.ValidarNombreApellido(apellido);
             var dniValido = Validador.ValidarDNI(dni);
             var edadValida = Validador.ValidarEdad(edad);
-            
             var chofer = new Persona(nombre, apellido, dniValido, edadValida);
+            Validador.VerificarChofer(chofer, choferes);
             choferes.Add(chofer);
             Guardar(choferes);
+
+        }
+
+
+        /// <summary>
+        /// Encuentra un objeto Persona en una lista de personas por la propiedad DNI
+        /// </summary>
+        /// <param name="dni"></param>
+        /// <returns></returns>
+        public Persona EncontrarChofer(string dni)
+        {
+            var choferes = ObtenerDatos();
+            foreach (var chofer in choferes)
+            {
+                if (dni == chofer.DNI.ToString())
+                {
+                    return chofer;
+                }
+
+
+            }
+
+            return null;
 
         }
     }

@@ -54,6 +54,10 @@ namespace Clases
             return lista;
         }
 
+        /// <summary>
+        /// Guarda el dato pedido en un json
+        /// </summary>
+        /// <param name="dato"></param>
         public void Guardar(List<T> dato) 
         {
             string resultadoJson = JsonSerializer.Serialize<List<T>>(dato);

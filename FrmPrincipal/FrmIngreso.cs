@@ -13,6 +13,7 @@ namespace FrmPrincipal
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
@@ -21,10 +22,11 @@ namespace FrmPrincipal
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 HacerLogin();
             }
-            catch 
+            catch
             {
                 MessageBox.Show("Error al ingresar");
             }
@@ -39,7 +41,7 @@ namespace FrmPrincipal
         /// <summary>
         /// Ingresa el usuario, si es valido, abre el form principal
         /// </summary>
-        private void HacerLogin() 
+        private void HacerLogin()
         {
             var json = new ManejadorUsuarioJson();
             var usuario = json.Login(txtBox_usuario.Text, txtBox_contrasenia.Text);
@@ -47,6 +49,6 @@ namespace FrmPrincipal
             formPrincipal.ShowDialog();
             Hide();
         }
-        
+
     }
 }

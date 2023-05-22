@@ -1,1 +1,1 @@
-[{"Nombre":"Ivan","Apellido":"Vio","DNI":41835848,"Edad":24},{"Nombre":"Lautaro","Apellido":"Gomez","DNI":39265666,"Edad":28},{"Nombre":"Leonel","Apellido":"Messi","DNI":10101010,"Edad":35},{"Nombre":"Ivan","Apellido":"Galeano","DNI":45896584,"Edad":26}]
+[{"Activo":false,"Nombre":"Leonel","Apellido":"Messi","DNI":10101010,"Edad":35},{"Activo":false,"Nombre":"Ivan","Apellido":"Galeano","DNI":45896584,"Edad":26}]

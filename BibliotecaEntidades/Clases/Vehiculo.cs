@@ -13,7 +13,27 @@ namespace Clases
         private string _marca;
         private string _modelo;
         private int _kilometros;
+        private bool _activo;
+        private Persona _persona;
+        private string _horarioSalida;
 
+        public bool Activo
+        {
+            get { return _activo; }
+            set { _activo = value; }
+        }
+
+        public string HorarioSalida
+        {
+            get { return _horarioSalida; }
+            set { _horarioSalida = value; }
+        }
+
+        public Persona PersonaAsignada
+        {
+            get { return _persona; }
+            set { _persona = value; }
+        }
 
         public string Dominio 
         {
@@ -52,13 +72,10 @@ namespace Clases
             Marca = marca;
             Modelo = modelo;
             Kilometros = kilometros;
+            Activo = false;
             
         }
-
-        public void AsignarPersona(string nombre, string apellido, int dni, int edad)
-        {
-            //var persona Persona = new Persona(nombre, apellido, dni, edad);
-        }
+        
 
         public string MostrarDetalles() 
         {
@@ -68,6 +85,26 @@ namespace Clases
             sb.AppendLine($"Dominio: {Dominio}");
 
             return sb.ToString();
+        }
+
+        public static bool operator ==(Vehiculo a, Vehiculo b)
+        {
+            if (a.Dominio == b.Dominio)
+            {
+                return true;
+            }
+            else { return false; }
+
+        }
+
+        public static bool operator !=(Vehiculo a, Vehiculo b)
+        {
+            if (a.Dominio != b.Dominio)
+            {
+                return false;
+            }
+            else { return true; }
+
         }
     }
 }
