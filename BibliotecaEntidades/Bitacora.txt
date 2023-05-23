@@ -1,2 +1,4 @@
-El vehiculo: NQP264 
- de tipo auto salio 23/05/2023 16:53 con Ivan Vio DNI: 41835848 y volvio 23/05/2023 17:01 kilometros actuales 200000
+
+El vehiculo: GIM536 
+ de tipo auto salio 23/05/2023 17:36 con Ivan Galeano DNI: 45896584 y volvio 23/05/2023 17:37 |||  Kilometros anteriores 2300 |||  Kilometros actuales 2320
+

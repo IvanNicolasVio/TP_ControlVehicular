@@ -82,7 +82,7 @@ namespace Clases
         /// </summary>
         /// <param name="horario"></param>
         /// <returns></returns>
-        public string MostrarDetallesDeSalida(string horario) 
+        public string MostrarDetallesDeSalida(string horario,int km) 
         {
             
             var sb = new StringBuilder();
@@ -92,7 +92,8 @@ namespace Clases
             sb.Append($" con {PersonaAsignada.Nombre} {PersonaAsignada.Apellido}");
             sb.Append($" DNI: {PersonaAsignada.DNI}");
             sb.Append($" y volvio {horario}");
-            sb.Append($" kilometros actuales {Kilometros}");
+            sb.Append($" |||  Kilometros anteriores {Kilometros}");
+            sb.Append($" |||  Kilometros actuales {km}");
             return sb.ToString();
         }
 

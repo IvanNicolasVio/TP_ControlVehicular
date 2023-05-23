@@ -328,8 +328,7 @@ namespace FrmPrincipal
             vehiculos.CargarEntradaVehiculo(vehiculo.Dominio, nuevosKm);
             var horarioEntrada = Horario.HorarioActual();
             var bitacora = new Bitacora();
-            bitacora.AgregarTexto(vehiculo.MostrarDetallesDeSalida(horarioEntrada));
-            //cargarChoferes();
+            bitacora.AgregarTexto(vehiculo.MostrarDetallesDeSalida(horarioEntrada, nuevosKm));
             HacerElementosVisibles(false);
 
         }

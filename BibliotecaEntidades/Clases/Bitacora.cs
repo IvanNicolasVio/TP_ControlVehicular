@@ -23,17 +23,12 @@ namespace Clases
         /// <exception cref="Exception"></exception>
         public void AgregarTexto(string texto)
         {
-            try
+            using (StreamWriter escritor = File.AppendText(_rutaArchivo))
             {
-                using (StreamWriter escritor = File.AppendText(_rutaArchivo))
-                {
-                    escritor.WriteLine(texto);
-                }
+                escritor.WriteLine(texto);
             }
-            catch (Exception ex)
-            {
-                throw new Exception("No se pudo agregar el texto");
-            }
+            
+            
         }
     }
     
