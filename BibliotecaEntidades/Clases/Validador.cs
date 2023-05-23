@@ -226,11 +226,11 @@ namespace Clases
         {
             foreach (var chofer in listaDeChoferes)
             {
-                if (chofer != persona)
+                if (chofer == persona)
                 {
+                    throw new Exception("Chofer ya existente");
 
                 }
-                throw new Exception("Chofer ya existente");
             }
         }
 
@@ -244,11 +244,26 @@ namespace Clases
         {
             foreach (var vehiculo in listaDeVehiculos)
             {
-                if (vehiculo != nuevoVehiculo)
+                if (vehiculo == nuevoVehiculo)
                 {
+                    throw new Exception("Vehiculo ya existente");
 
                 }
-                throw new Exception("Vehiculo ya existente");
+            }
+        }
+
+
+        /// <summary>
+        /// Valida que los Km entrantes sean mayores que los de un Objeto Vehiculo
+        /// </summary>
+        /// <param name="vehiculo"></param>
+        /// <param name="km"></param>
+        /// <exception cref="Exception"></exception>
+        public static void ValidarKmAnteriores(Vehiculo vehiculo, int km) 
+        {
+            if (km < vehiculo.Kilometros)
+            {
+                throw new Exception("Los kilometros tienen que ser mayores a los que ya tenia");
             }
         }
     }   

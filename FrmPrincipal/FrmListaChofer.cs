@@ -56,6 +56,9 @@ namespace FrmPrincipal
             
         }
 
+        /// <summary>
+        /// Ordena el formulario, si el Usuario es administrador activa algunos botones, si no, los desactiva
+        /// </summary>
         internal void OrdenarFrm()
         {
             if (ManejadorUsuarioJson.UsuarioActivo!.Administrador)

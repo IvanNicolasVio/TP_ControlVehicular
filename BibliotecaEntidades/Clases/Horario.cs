@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Clases
 {
+    
     public static class Horario
     {
         /// <summary>

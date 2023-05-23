@@ -40,8 +40,18 @@ namespace Clases
 
         }
 
+        /// <summary>
+        /// Cambia las propiedades de un objeto Vehiculo, lo hace activo, le asigna una persona y le agega un horario de salida
+        /// </summary>
+        /// <param name="dominio"></param>
+        /// <param name="persona"></param>
+        /// <param name="horario"></param>
         public void CargarSalidaVehiculo(string dominio, Persona persona, string horario)
         {
+            if(persona is not Persona) 
+            {
+                throw new Exception("Seleccione una persona");
+            }
             var vehiculos = ObtenerDatos();
             Vehiculo vehiculoSaliente = null;
             foreach (var vehiculo in vehiculos)
@@ -50,10 +60,8 @@ namespace Clases
                 {
                     vehiculoSaliente = vehiculo;
                     vehiculos.Remove(vehiculo);
-                    continue;
+                    break;
                 }
-
-
             }
             if (vehiculoSaliente is not null) 
             {
@@ -67,7 +75,12 @@ namespace Clases
 
         }
 
-        public void CargarEntradaVehiculo(string dominio)
+        /// <summary>
+        /// Cambia las propiedades de un objeto Vehiculo, le modifica los Kilometros, le cambia el activo a Falso, le quita la persona asignada y el horario de salida
+        /// </summary>
+        /// <param name="dominio"></param>
+        /// <param name="km"></param>
+        public void CargarEntradaVehiculo(string dominio,int km)
         {
             var vehiculos = ObtenerDatos();
             Vehiculo vehiculoEntrante = null;
@@ -77,13 +90,14 @@ namespace Clases
                 {
                     vehiculoEntrante = vehiculo;
                     vehiculos.Remove(vehiculo);
-                    continue;
+                    break ;
                 }
 
 
             }
             if (vehiculoEntrante is not null)
             {
+                vehiculoEntrante.Kilometros = km;
                 vehiculoEntrante.Activo = false;
                 vehiculoEntrante.PersonaAsignada = null;
                 vehiculoEntrante.HorarioSalida = "";
@@ -112,7 +126,6 @@ namespace Clases
                 
                 
             }
-
             return null;
             
         }

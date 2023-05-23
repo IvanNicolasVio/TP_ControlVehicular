@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -55,9 +56,47 @@ namespace Clases
 
 
             }
-
             return null;
+        }
 
+        /// <summary>
+        /// Hace que un objeto persona cambie su propiedad activo a True
+        /// </summary>
+        /// <param name="persona"></param>
+        public void HacerActivoChofer(Persona persona) 
+        {
+            var choferes = ObtenerDatos();
+            foreach (var chofer in choferes)
+            {
+                if (persona == chofer)
+                {
+                    choferes.Remove(chofer);
+                    persona.Activo = true;
+                    choferes.Add(persona);
+                    Guardar(choferes);
+                    break;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Hace que un objeto persona cambie su propiedad activo a False
+        /// </summary>
+        /// <param name="persona"></param>
+        public void DesactivarChofer(Persona persona)
+        {
+            var choferes = ObtenerDatos();
+            foreach (var chofer in choferes)
+            {
+                if (persona == chofer)
+                {
+                    choferes.Remove(chofer);
+                    persona.Activo = false;
+                    choferes.Add(persona);
+                    Guardar(choferes);
+                    break;
+                }
+            }
         }
     }
 }

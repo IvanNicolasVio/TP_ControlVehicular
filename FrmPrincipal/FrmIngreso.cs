@@ -45,9 +45,9 @@ namespace FrmPrincipal
         {
             var json = new ManejadorUsuarioJson();
             var usuario = json.Login(txtBox_usuario.Text, txtBox_contrasenia.Text);
-            var formPrincipal = new FrmContenedor();
+            var formPrincipal = new FrmContenedor(this);
             formPrincipal.ShowDialog();
-            Hide();
+            
         }
 
     }

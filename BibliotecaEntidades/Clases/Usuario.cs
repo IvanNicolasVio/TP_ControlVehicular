@@ -58,6 +58,13 @@ namespace Clases
             else { return false; }
         }
 
+
+        /// <summary>
+        /// Cambia las propiedades del objeto
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="contrasenia"></param>
+        /// <param name="adm"></param>
         public void editarUsuario(string nombre,string contrasenia,string adm) 
         {
             Validador.ValidarUsuario(nombre);

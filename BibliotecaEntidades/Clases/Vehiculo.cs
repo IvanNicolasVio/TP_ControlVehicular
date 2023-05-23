@@ -77,13 +77,22 @@ namespace Clases
         }
         
 
-        public string MostrarDetalles() 
+        /// <summary>
+        /// Devuelve un string informando las distintas propiedades del objeto
+        /// </summary>
+        /// <param name="horario"></param>
+        /// <returns></returns>
+        public string MostrarDetallesDeSalida(string horario) 
         {
+            
             var sb = new StringBuilder();
-            sb.AppendLine($"Vehiculo: {Tipo}");
-            sb.AppendLine($"Marca: {Marca}");
-            sb.AppendLine($"Dominio: {Dominio}");
-
+            sb.AppendLine($"El vehiculo: {Dominio} ");
+            sb.Append($" de tipo {Tipo}");
+            sb.Append($" salio {HorarioSalida}");
+            sb.Append($" con {PersonaAsignada.Nombre} {PersonaAsignada.Apellido}");
+            sb.Append($" DNI: {PersonaAsignada.DNI}");
+            sb.Append($" y volvio {horario}");
+            sb.Append($" kilometros actuales {Kilometros}");
             return sb.ToString();
         }
 

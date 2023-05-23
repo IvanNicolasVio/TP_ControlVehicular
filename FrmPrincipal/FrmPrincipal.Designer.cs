@@ -407,7 +407,6 @@
             Controls.Add(boton_busqueda);
             ForeColor = SystemColors.ActiveCaptionText;
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
             MaximizeBox = false;
             Name = "FrmContenedor";

@@ -1,0 +1,2 @@
+El vehiculo: NQP264 
+ de tipo auto salio 23/05/2023 16:53 con Ivan Vio DNI: 41835848 y volvio 23/05/2023 17:01 kilometros actuales 200000

@@ -91,19 +91,19 @@ namespace FrmPrincipal
                 var usuarios = json.ObtenerDatos();
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
                 Usuario selectedData = (Usuario)selectedRow.DataBoundItem;
-                try 
+                try
                 {
-                foreach (var usuario in usuarios)
-                {
-                    if (usuario == selectedData)
+                    foreach (var usuario in usuarios)
                     {
-                        usuario.editarUsuario(textBox_usuario.Text, textBox_contrasenia.Text, comboBox_administrador.Text);
+                        if (usuario == selectedData)
+                        {
+                            usuario.editarUsuario(textBox_usuario.Text, textBox_contrasenia.Text, comboBox_administrador.Text);
 
-                        break;
+                            break;
+                        }
                     }
-                }
-                json.Guardar(usuarios);
-                dataGridView1.DataSource = usuarios;
+                    json.Guardar(usuarios);
+                    dataGridView1.DataSource = usuarios;
                 }
                 catch (Exception ex)
                 {
