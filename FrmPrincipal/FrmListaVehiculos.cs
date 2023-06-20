@@ -23,24 +23,23 @@ namespace FrmPrincipal
 
         private void boton_mostrar_Click(object sender, EventArgs e)
         {
-            var json = new ManejadorVehiculosJson();
-            var vehiculos = json.ObtenerDatos();
+            var admVehiculos = new AdmVehiculos();
+            var vehiculos = admVehiculos.TraerLista();
             dataGridView1.DataSource = vehiculos;
         }
 
         private void boton_editar_Click(object sender, EventArgs e)
         {
-            var json = new ManejadorVehiculosJson();
-            var vehiculos = json.ObtenerDatos();
-            vehiculos = (List<Vehiculo>)dataGridView1.DataSource;
-            json.Guardar(vehiculos);
+            var admVehiculos = new AdmVehiculos();
+            var vehiculos = (List<Vehiculo>)dataGridView1.DataSource;
+            admVehiculos.EditarVehiculo(vehiculos);
         }
 
 
 
         private void OrdenarFrm()
         {
-            if (ManejadorUsuarioJson.UsuarioActivo!.Administrador)
+            if (AdmUsuarios.UsuarioActivo!.Administrador)
             {
                 boton_editar.Enabled = true;
                 boton_borrar.Enabled = true;
@@ -58,20 +57,20 @@ namespace FrmPrincipal
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                var json = new ManejadorVehiculosJson();
-                var vehiculos = json.ObtenerDatos();
+                var admVehiculos = new AdmVehiculos();
+                var vehiculos = admVehiculos.TraerLista();
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
                 Vehiculo selectedData = (Vehiculo)selectedRow.DataBoundItem;
                 foreach (var vehiculo in vehiculos)
                 {
                     if (vehiculo == selectedData)
                     {
-                        vehiculos.Remove(vehiculo);
+                        admVehiculos.Borrar(vehiculo);
                         break;
                     }
                 }
 
-                dataGridView1.DataSource = vehiculos;
+                dataGridView1.Columns.Clear();
             }
         }
     }

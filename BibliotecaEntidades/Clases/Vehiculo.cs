@@ -16,6 +16,9 @@ namespace Clases
         private bool _activo;
         private Persona _persona;
         private string _horarioSalida;
+        private int _id;
+
+        public int Id { get { return _id; } private set { _id = value; } }
 
         public bool Activo
         {
@@ -75,7 +78,18 @@ namespace Clases
             Activo = false;
             
         }
-        
+
+        public Vehiculo(string dominio, string tipo, string marca, string modelo, int kilometros,int id)
+        {
+            Dominio = dominio;
+            Tipo = tipo;
+            Marca = marca;
+            Modelo = modelo;
+            Kilometros = kilometros;
+            Activo = false;
+            Id = id;
+        }
+
 
         /// <summary>
         /// Devuelve un string informando las distintas propiedades del objeto

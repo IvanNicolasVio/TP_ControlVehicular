@@ -43,11 +43,10 @@ namespace FrmPrincipal
         /// </summary>
         private void HacerLogin()
         {
-            var json = new ManejadorUsuarioJson();
-            var usuario = json.Login(txtBox_usuario.Text, txtBox_contrasenia.Text);
+            var admUsuarios = new AdmUsuarios();
+            var usuario = admUsuarios.Login(txtBox_usuario.Text, txtBox_contrasenia.Text);
             var formPrincipal = new FrmContenedor(this);
             formPrincipal.ShowDialog();
-            
         }
 
     }

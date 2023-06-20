@@ -22,7 +22,7 @@ namespace FrmPrincipal
         {
             try
             {
-                var usuarios = new ManejadorUsuarioJson();
+                var usuarios = new AdmUsuarios();
                 usuarios.CrearUsuario(textBox_nombreUsuario.Text, textBox_contrasenia.Text, comboBox_administrador.Text);
                 Close();
             }

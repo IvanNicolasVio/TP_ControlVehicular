@@ -1,1 +1,21 @@
-[{"Nombre":"IvanVio","Contrasenia":"12345","Administrador":true,"Activo":false},{"Nombre":"Lautaro","Contrasenia":"55555","Administrador":false,"Activo":false},{"Nombre":"Guidito","Contrasenia":"12345","Administrador":false,"Activo":false}]
+[
+  {
+    "Nombre": "IvanVio",
+    "Contrasenia": "12345",
+    "Administrador": true,
+    "Activo": false,
+    
+  },
+  {
+    "Nombre": "Lautaro",
+    "Contrasenia": "55555",
+    "Administrador": false,
+    "Activo": false
+  },
+  {
+    "Nombre": "Guidito",
+    "Contrasenia": "12345",
+    "Administrador": false,
+    "Activo": false
+  }
+]

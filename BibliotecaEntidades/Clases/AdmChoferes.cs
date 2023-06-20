@@ -2,23 +2,44 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Reflection;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Clases
+namespace BibliotecaEntidades.Clases
 {
-    public class ManejadorChoferJson : ManejadorJson<Persona>
+    public class AdmChoferes
     {
-        public ManejadorChoferJson() : base("C:\\Users\\Iván\\source\\repos\\TP_ControlVehicular\\BibliotecaEntidades\\choferes.json")
-        {
+        private IDato<Persona> datos;
 
+        public AdmChoferes()
+        {
+            datos = new AdmChoferesSQL();
+        }
+        public AdmChoferes(IDato<Persona> datos)
+        {
+            this.datos = datos;
+        }
+
+        public List<Persona> TraerLista()
+        {
+            return datos.Leer();
+        }
+
+        public void EditarChofer(List<Persona> lista)
+        {
+            foreach (Persona chofer in lista)
+            {
+                datos.ModificarLista(chofer);
+            }
+        }
+
+        public void Borrar(Persona chofer) 
+        {
+            datos.Borrar(chofer);
         }
 
         /// <summary>
-        /// Crea un chofer y lo agrega a la lista de JSON
+        /// Crea un chofer y lo agrega a la lista de SQL
         /// </summary>
         /// <param name="nombre"></param>
         /// <param name="apellido"></param>
@@ -26,16 +47,14 @@ namespace Clases
         /// <param name="edad"></param>
         public void IngresarChofer(string nombre, string apellido, string dni, string edad)
         {
-            var choferes = ObtenerDatos();
+            var choferes = TraerLista();
             Validador.ValidarNombreApellido(nombre);
             Validador.ValidarNombreApellido(apellido);
             var dniValido = Validador.ValidarDNI(dni);
             var edadValida = Validador.ValidarEdad(edad);
             var chofer = new Persona(nombre, apellido, dniValido, edadValida);
             Validador.VerificarChofer(chofer, choferes);
-            choferes.Add(chofer);
-            Guardar(choferes);
-
+            datos.Agregar(chofer);
         }
 
 
@@ -46,15 +65,13 @@ namespace Clases
         /// <returns></returns>
         public Persona EncontrarChofer(string dni)
         {
-            var choferes = ObtenerDatos();
+            var choferes = TraerLista();
             foreach (var chofer in choferes)
             {
                 if (dni == chofer.DNI.ToString())
                 {
                     return chofer;
                 }
-
-
             }
             return null;
         }
@@ -63,17 +80,14 @@ namespace Clases
         /// Hace que un objeto persona cambie su propiedad activo a True
         /// </summary>
         /// <param name="persona"></param>
-        public void HacerActivoChofer(Persona persona) 
+        public void HacerActivoChofer(Persona persona)
         {
-            var choferes = ObtenerDatos();
+            var choferes = TraerLista();
             foreach (var chofer in choferes)
             {
                 if (persona == chofer)
                 {
-                    choferes.Remove(chofer);
-                    persona.Activo = true;
-                    choferes.Add(persona);
-                    Guardar(choferes);
+                    datos.ModificarBooleano(persona, true);
                     break;
                 }
             }
@@ -85,19 +99,15 @@ namespace Clases
         /// <param name="persona"></param>
         public void DesactivarChofer(Persona persona)
         {
-            var choferes = ObtenerDatos();
+            var choferes = TraerLista();
             foreach (var chofer in choferes)
             {
                 if (persona == chofer)
                 {
-                    choferes.Remove(chofer);
-                    persona.Activo = false;
-                    choferes.Add(persona);
-                    Guardar(choferes);
+                    datos.ModificarBooleano(persona, false);
                     break;
                 }
             }
         }
-
     }
 }

@@ -12,6 +12,9 @@ namespace Clases
         private string _contrasenia;
         private bool _administrador;
         private bool _activo;
+        private int _id;
+
+        public int Id { get { return _id; } private set { _id = value; } }
 
         public string Nombre
         {
@@ -43,6 +46,16 @@ namespace Clases
             Contrasenia = contrasenia;
             Administrador = administrador;
             Activo = false;
+        }
+
+  
+        internal Usuario(string nombre, string contrasenia, bool administrador,int id)
+        {
+            Nombre = nombre;
+            Contrasenia = contrasenia;
+            Administrador = administrador;
+            Activo = false;
+            Id = id;
         }
 
         /// <summary>

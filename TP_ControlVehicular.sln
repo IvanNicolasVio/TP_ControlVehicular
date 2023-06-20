@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrmPrincipal", "FrmPrincipal\FrmPrincipal.csproj", "{358192AB-9E0D-4455-9587-5DDB62C7770F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Biblioteca de Formularios", "FrmPrincipal\Biblioteca de Formularios.csproj", "{358192AB-9E0D-4455-9587-5DDB62C7770F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BibliotecaEntidades", "BibliotecaEntidades\BibliotecaEntidades.csproj", "{63BA7C99-2C47-4640-8705-EF66DA09B246}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BibliotecaEntidades", "BibliotecaEntidades\BibliotecaEntidades.csproj", "{63BA7C99-2C47-4640-8705-EF66DA09B246}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlVehicularTest", "ControlVehicularTest\ControlVehicularTest.csproj", "{05742C76-1C20-4162-9AB6-E02D394710FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{63BA7C99-2C47-4640-8705-EF66DA09B246}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63BA7C99-2C47-4640-8705-EF66DA09B246}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63BA7C99-2C47-4640-8705-EF66DA09B246}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05742C76-1C20-4162-9AB6-E02D394710FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05742C76-1C20-4162-9AB6-E02D394710FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05742C76-1C20-4162-9AB6-E02D394710FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05742C76-1C20-4162-9AB6-E02D394710FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

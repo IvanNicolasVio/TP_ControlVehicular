@@ -197,6 +197,32 @@ namespace Clases
             
         }
 
+        public static bool ValidarAdministradorPorInt(int texto)
+        {
+            if (texto == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public static int BoolAInt(bool texto)
+        {
+            if (texto == true)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+
+        }
+
         /// <summary>
         /// Verifica si un usuario de una lista esta ya creado
         /// </summary>

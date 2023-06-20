@@ -21,7 +21,7 @@ namespace FrmPrincipal
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var vehiculos = new ManejadorVehiculosJson();
+            var vehiculos = new AdmVehiculos();
             try
             {
                 vehiculos.IngresarVehiculo(txtBox_patente.Text, box_tipo.Text, box_marca.Text, txtBox_modelo.Text, txtBox_kilometros.Text);

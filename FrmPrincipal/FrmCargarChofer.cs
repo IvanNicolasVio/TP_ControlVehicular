@@ -1,4 +1,5 @@
-﻿using Clases;
+﻿using BibliotecaEntidades.Clases;
+using Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,7 +22,7 @@ namespace FrmPrincipal
 
         private void boton_cargar_Click(object sender, EventArgs e)
         {
-            var choferes = new ManejadorChoferJson();
+            var choferes = new AdmChoferes();
             try
             {
                 choferes.IngresarChofer(textBox_nombre.Text, textBox_apellido.Text, textBox_dni.Text, textBox_edad.Text);

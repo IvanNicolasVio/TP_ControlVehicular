@@ -1,3 +1,4 @@
+using BibliotecaEntidades.Clases;
 using Clases;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -37,10 +38,6 @@ namespace FrmPrincipal
         {
             var frmListaUsuario = new FrmListaUsuarios();
             frmListaUsuario.ShowDialog();
-
-            //var hijo = new FrmListaUsuarios();
-            //hijo.MdiParent = this;
-            //hijo.Show();
         }
 
         private void listaVehiculosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -62,8 +59,8 @@ namespace FrmPrincipal
         private void organizarFormulario()
         {
 
-            txt_usuario.Text = "Nombre: " + ManejadorUsuarioJson.UsuarioActivo!.Nombre;
-            if (ManejadorUsuarioJson.UsuarioActivo.Administrador)
+            txt_usuario.Text = "Nombre: " + AdmUsuarios.UsuarioActivo!.Nombre;
+            if (AdmUsuarios.UsuarioActivo.Administrador)
             {
                 administrarUsuariosToolStripMenuItem.Enabled = true;
                 nuevoChoferToolStripMenuItem.Enabled = true;
@@ -89,8 +86,8 @@ namespace FrmPrincipal
         /// </summary>
         private void cargarPatentes()
         {
-            var json = new ManejadorVehiculosJson();
-            var vehiculos = json.ObtenerDatos();
+            var admVehiculos = new AdmVehiculos();
+            var vehiculos = admVehiculos.TraerLista();
             foreach (var vehiculo in vehiculos)
             {
                 comboBox_busqueda.Items.Add(vehiculo.Dominio);
@@ -102,8 +99,8 @@ namespace FrmPrincipal
         /// </summary>
         private void cargarChoferesNoActivos()
         {
-            var jsonChofer = new ManejadorChoferJson();
-            var choferes = jsonChofer.ObtenerDatos();
+            var admChoferes = new AdmChoferes();
+            var choferes = admChoferes.TraerLista();
 
             foreach (var chofer in choferes)
             {
@@ -119,8 +116,8 @@ namespace FrmPrincipal
         /// </summary>
         private void cargarChoferesActivos()
         {
-            var jsonChofer = new ManejadorChoferJson();
-            var choferes = jsonChofer.ObtenerDatos();
+            var admChoferes = new AdmChoferes();
+            var choferes = admChoferes.TraerLista();
 
             foreach (var chofer in choferes)
             {
@@ -136,8 +133,8 @@ namespace FrmPrincipal
         /// </summary>
         private void actualizarNombres()
         {
-            var jsonChofer = new ManejadorChoferJson();
-            var choferes = jsonChofer.ObtenerDatos();
+            var admChoferes = new AdmChoferes();
+            var choferes = admChoferes.TraerLista();
             foreach (var chofer in choferes)
             {
                 if (comboBox_dniChofer.Text == chofer.DNI.ToString())
@@ -196,8 +193,8 @@ namespace FrmPrincipal
                 boton_terminar.Visible = false;
             }
 
-            var json = new ManejadorVehiculosJson();
-            var vehiculos = json.ObtenerDatos();
+            var admVehiculos = new AdmVehiculos();
+            var vehiculos = admVehiculos.TraerLista();
             foreach (var vehiculo in vehiculos)
             {
                 if (!vehiculo.Activo)
@@ -222,8 +219,8 @@ namespace FrmPrincipal
         private void boton_busqueda_Click(object sender, EventArgs e)
         {
             _botonActivo = true;
-            var json = new ManejadorVehiculosJson();
-            var vehiculos = json.ObtenerDatos();
+            var admVehiculos = new AdmVehiculos();
+            var vehiculos = admVehiculos.TraerLista();
             comboBox_dniChofer.Items.Clear();
             foreach (var vehiculo in vehiculos)
             {
@@ -268,7 +265,7 @@ namespace FrmPrincipal
 
 
         /// <summary>
-        /// Busca el texto pasado por parametro en un combobox
+        /// Busca el texto pasado por parametro en un combobox, retorna la posicion
         /// </summary>
         /// <param name="comboBox"></param>
         /// <param name="textoBuscado"></param>
@@ -281,11 +278,11 @@ namespace FrmPrincipal
 
                 if (valorComboBox == textoBuscado)
                 {
-                    return i; // Se encontró coincidencia, se devuelve la posición
+                    return i; 
                 }
             }
 
-            return -1; // No se encontró coincidencia, se devuelve -1
+            return -1; 
         }
 
         private void comboBox_dniChofer_SelectedIndexChanged(object sender, EventArgs e)
@@ -298,14 +295,13 @@ namespace FrmPrincipal
             try
             {
                 textBox_horarioSalida.Text = Horario.HorarioActual();
-                var choferes = new ManejadorChoferJson();
-                var vehiculos = new ManejadorVehiculosJson();
+                var choferes = new AdmChoferes();
+                var vehiculos = new AdmVehiculos();
                 Persona chofer = choferes.EncontrarChofer(comboBox_dniChofer.Text);
                 Vehiculo vehiculo = vehiculos.EncontrarVehiculo(comboBox_busqueda.Text);
                 vehiculos.CargarSalidaVehiculo(vehiculo.Dominio, chofer, textBox_horarioSalida.Text);
                 choferes.HacerActivoChofer(chofer);
                 MessageBox.Show($"Horario de salida: {textBox_horarioSalida.Text}");
-                //cargarChoferes();
                 HacerElementosVisibles(false);
             }
             catch (Exception ex)
@@ -317,8 +313,8 @@ namespace FrmPrincipal
 
         private void boton_terminar_Click(object sender, EventArgs e)
         {
-            var choferes = new ManejadorChoferJson();
-            var vehiculos = new ManejadorVehiculosJson();
+            var choferes = new AdmChoferes();
+            var vehiculos = new AdmVehiculos();
             Persona chofer = choferes.EncontrarChofer(comboBox_dniChofer.Text);
             Vehiculo vehiculo = vehiculos.EncontrarVehiculo(comboBox_busqueda.Text);
             var km = new FrmCargarKilometros(vehiculo);
@@ -330,7 +326,6 @@ namespace FrmPrincipal
             var bitacora = new Bitacora();
             bitacora.AgregarTexto(vehiculo.MostrarDetallesDeSalida(horarioEntrada, nuevosKm));
             HacerElementosVisibles(false);
-
         }
 
         private void button_cerrarSesion_Click(object sender, EventArgs e)

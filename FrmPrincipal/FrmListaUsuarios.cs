@@ -22,8 +22,8 @@ namespace FrmPrincipal
 
         internal void OrdenarFrm()
         {
-            var json = new ManejadorUsuarioJson();
-            var usuarios = json.ObtenerDatos();
+            var admUsuarios = new AdmUsuarios();
+            var usuarios = admUsuarios.TraerLista();
             dataGridView1.DataSource = usuarios;
         }
 
@@ -66,20 +66,20 @@ namespace FrmPrincipal
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                var json = new ManejadorUsuarioJson();
-                var usuarios = json.ObtenerDatos();
+                var admUsuarios = new AdmUsuarios();
+                var usuarios = admUsuarios.TraerLista();
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
                 Usuario selectedData = (Usuario)selectedRow.DataBoundItem;
                 foreach (var usuario in usuarios)
                 {
                     if (usuario == selectedData)
                     {
-                        usuarios.Remove(usuario);
+                        admUsuarios.Borrar(usuario);
                         break;
                     }
                 }
-                json.Guardar(usuarios);
-                dataGridView1.DataSource = usuarios;
+                dataGridView1.Columns.Clear();
+                OrdenarFrm();
             }
         }
 

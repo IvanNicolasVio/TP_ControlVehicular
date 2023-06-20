@@ -2,3 +2,11 @@
 El vehiculo: GIM536 
  de tipo auto salio 23/05/2023 17:36 con Ivan Galeano DNI: 45896584 y volvio 23/05/2023 17:37 |||  Kilometros anteriores 2300 |||  Kilometros actuales 2320
 
+El vehiculo: GIM536 
+ de tipo auto salio 23/05/2023 17:56 con Ivan Vio DNI: 41835848 y volvio 23/05/2023 17:57 |||  Kilometros anteriores 2320 |||  Kilometros actuales 2340
+El vehiculo: IVO568 
+ de tipo Camion salio 23/05/2023 22:34 con Ivan Vio DNI: 41835848 y volvio 23/05/2023 22:35 |||  Kilometros anteriores 54444 |||  Kilometros actuales 54450
+El vehiculo: IVO568 
+ de tipo Camion salio 23/05/2023 22:35 con Leonel Messi DNI: 10101010 y volvio 19/06/2023 14:14 |||  Kilometros anteriores 54450 |||  Kilometros actuales 64450
+El vehiculo: IVO568 
+ de tipo Camion salio 19/06/2023 18:22 con Ivan Vio DNI: 41835848 y volvio 19/06/2023 18:35 |||  Kilometros anteriores 64450 |||  Kilometros actuales 75000

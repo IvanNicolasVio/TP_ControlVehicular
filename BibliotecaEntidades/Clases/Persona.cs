@@ -13,7 +13,18 @@ namespace Clases
         private int _dni;
         private int _edad;
         private bool _activo;
+        private int _id;
         
+
+        public Persona(string nombre, string apellido, int dni, int edad,int id)
+        {
+            Nombre = nombre;
+            Apellido = apellido;
+            DNI = dni;
+            Edad = edad;
+            Activo = false;
+            Id = id;
+        }
 
         public Persona(string nombre, string apellido, int dni, int edad)
         {
@@ -22,8 +33,10 @@ namespace Clases
             DNI = dni;
             Edad = edad;
             Activo = false;
+          
         }
 
+        public int Id { get { return _id; } private set { _id = value; } }
         public bool Activo
         {
             get { return _activo; }
@@ -84,6 +97,13 @@ namespace Clases
             else { return true; }
 
         }
+
+        public override string ToString()
+        {
+            var cadenaTexto = $"{Nombre} {Apellido}";
+            return cadenaTexto;
+        }
+
     }
 
     

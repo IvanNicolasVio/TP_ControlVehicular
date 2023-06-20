@@ -1,4 +1,5 @@
-﻿using Clases;
+﻿using BibliotecaEntidades.Clases;
+using Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,37 +22,38 @@ namespace FrmPrincipal
 
         private void boton_mostrar_Click(object sender, EventArgs e)
         {
-            var json = new ManejadorChoferJson();
-            var choferes = json.ObtenerDatos();
+            //var json = new ManejadorChoferJson();
+            //var choferes = json.ObtenerDatos();
+            var admChoferes = new AdmChoferes();
+            var choferes = admChoferes.TraerLista();
             dataGridView1.DataSource = choferes;
         }
 
         private void boton_editar_Click(object sender, EventArgs e)
         {
-            var json = new ManejadorChoferJson();
-            var choferes = json.ObtenerDatos();
-            choferes = (List<Persona>)dataGridView1.DataSource;
-            json.Guardar(choferes);
+            var admChoferes = new AdmChoferes();
+            var choferes = (List<Persona>)dataGridView1.DataSource;
+            admChoferes.EditarChofer(choferes);
         }
 
         private void boton_eliminar_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                var json = new ManejadorChoferJson();
-                var choferes = json.ObtenerDatos();
+                var admChofer = new AdmChoferes();
+                var choferes = admChofer.TraerLista();
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
                 Persona selectedData = (Persona)selectedRow.DataBoundItem;
                 foreach (var chofer in choferes) 
                 {
                     if(chofer == selectedData) 
                     {
-                        choferes.Remove(chofer);
+                        admChofer.Borrar(chofer);
                         break;
                     }
                 }
-                
-                dataGridView1.DataSource = choferes;
+
+                dataGridView1.Columns.Clear();
             }
             
         }
@@ -61,7 +63,7 @@ namespace FrmPrincipal
         /// </summary>
         internal void OrdenarFrm()
         {
-            if (ManejadorUsuarioJson.UsuarioActivo!.Administrador)
+            if (AdmUsuarios.UsuarioActivo!.Administrador)
             {
                 boton_editar.Enabled = true;
                 boton_borrar.Enabled = true;
