@@ -33,6 +33,8 @@
             boton_mostrar = new Button();
             boton_editar = new Button();
             boton_borrar = new Button();
+            boton_exp_json = new Button();
+            boton_exp_csv = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -53,7 +55,7 @@
             boton_mostrar.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
             boton_mostrar.Location = new Point(12, 13);
             boton_mostrar.Name = "boton_mostrar";
-            boton_mostrar.Size = new Size(132, 34);
+            boton_mostrar.Size = new Size(122, 34);
             boton_mostrar.TabIndex = 1;
             boton_mostrar.Text = "MOSTRAR";
             boton_mostrar.UseVisualStyleBackColor = true;
@@ -62,7 +64,7 @@
             // boton_editar
             // 
             boton_editar.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            boton_editar.Location = new Point(318, 14);
+            boton_editar.Location = new Point(268, 14);
             boton_editar.Name = "boton_editar";
             boton_editar.Size = new Size(198, 33);
             boton_editar.TabIndex = 2;
@@ -73,13 +75,35 @@
             // boton_borrar
             // 
             boton_borrar.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            boton_borrar.Location = new Point(164, 14);
+            boton_borrar.Location = new Point(140, 14);
             boton_borrar.Name = "boton_borrar";
-            boton_borrar.Size = new Size(132, 32);
+            boton_borrar.Size = new Size(122, 32);
             boton_borrar.TabIndex = 3;
             boton_borrar.Text = "BORRAR FILA";
             boton_borrar.UseVisualStyleBackColor = true;
             boton_borrar.Click += boton_borrar_Click;
+            // 
+            // boton_exp_json
+            // 
+            boton_exp_json.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            boton_exp_json.Location = new Point(667, 14);
+            boton_exp_json.Name = "boton_exp_json";
+            boton_exp_json.Size = new Size(121, 33);
+            boton_exp_json.TabIndex = 11;
+            boton_exp_json.Text = "EXPORTAR JSON";
+            boton_exp_json.UseVisualStyleBackColor = true;
+            boton_exp_json.Click += boton_exp_json_Click;
+            // 
+            // boton_exp_csv
+            // 
+            boton_exp_csv.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            boton_exp_csv.Location = new Point(540, 14);
+            boton_exp_csv.Name = "boton_exp_csv";
+            boton_exp_csv.Size = new Size(121, 33);
+            boton_exp_csv.TabIndex = 12;
+            boton_exp_csv.Text = "EXPORTAR CSV";
+            boton_exp_csv.UseVisualStyleBackColor = true;
+            boton_exp_csv.Click += boton_exp_csv_Click;
             // 
             // FrmLista
             // 
@@ -87,6 +111,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(800, 450);
+            Controls.Add(boton_exp_csv);
+            Controls.Add(boton_exp_json);
             Controls.Add(boton_borrar);
             Controls.Add(boton_editar);
             Controls.Add(boton_mostrar);
@@ -103,5 +129,7 @@
         private Button boton_mostrar;
         private Button boton_editar;
         private Button boton_borrar;
+        private Button boton_exp_json;
+        private Button boton_exp_csv;
     }
 }

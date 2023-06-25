@@ -1,11 +1,12 @@
 ﻿using System;
 using Clases;
+using BibliotecaEntidades.AdministradoresSQL;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Clases
+namespace BibliotecaEntidades.AdministradoresDeClases
 {
     public class AdmUsuarios
     {
@@ -13,12 +14,12 @@ namespace Clases
         private IDato<Usuario> datos;
         public static Usuario? UsuarioActivo { get; private set; }
 
-        public AdmUsuarios() 
+        public AdmUsuarios()
         {
             datos = new AdmUsuariosSQL();
         }
 
-        public AdmUsuarios(IDato<Usuario> datos) 
+        public AdmUsuarios(IDato<Usuario> datos)
         {
             this.datos = datos;
         }

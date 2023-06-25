@@ -62,6 +62,9 @@
             boton_terminar = new Button();
             comboBox_dniChofer = new ComboBox();
             button_cerrarSesion = new Button();
+            boton_ext_pdf = new Button();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            boton_ext_log = new Button();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -374,6 +377,28 @@
             button_cerrarSesion.UseVisualStyleBackColor = true;
             button_cerrarSesion.Click += button_cerrarSesion_Click;
             // 
+            // boton_ext_pdf
+            // 
+            boton_ext_pdf.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            boton_ext_pdf.Location = new Point(12, 126);
+            boton_ext_pdf.Name = "boton_ext_pdf";
+            boton_ext_pdf.Size = new Size(202, 32);
+            boton_ext_pdf.TabIndex = 39;
+            boton_ext_pdf.Text = "EXTRAER PDF DE BITACORA";
+            boton_ext_pdf.UseVisualStyleBackColor = true;
+            boton_ext_pdf.Click += boton_ext_pdf_Click;
+            // 
+            // boton_ext_log
+            // 
+            boton_ext_log.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            boton_ext_log.Location = new Point(12, 164);
+            boton_ext_log.Name = "boton_ext_log";
+            boton_ext_log.Size = new Size(202, 32);
+            boton_ext_log.TabIndex = 40;
+            boton_ext_log.Text = "EXTRAER PDF DE LOGS";
+            boton_ext_log.UseVisualStyleBackColor = true;
+            boton_ext_log.Click += boton_ext_log_Click;
+            // 
             // FrmContenedor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -381,6 +406,8 @@
             BackColor = SystemColors.ActiveBorder;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(800, 450);
+            Controls.Add(boton_ext_log);
+            Controls.Add(boton_ext_pdf);
             Controls.Add(txt_tipoUsuario);
             Controls.Add(txt_usuario);
             Controls.Add(label8);
@@ -454,5 +481,8 @@
         private Button boton_terminar;
         private ComboBox comboBox_dniChofer;
         private Button button_cerrarSesion;
+        private Button boton_ext_pdf;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Button boton_ext_log;
     }
 }

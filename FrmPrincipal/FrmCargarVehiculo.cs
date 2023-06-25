@@ -1,4 +1,6 @@
-﻿using Clases;
+﻿using BibliotecaEntidades.AdministradoresDeClases;
+using BibliotecaEntidades.Clases;
+using Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +27,9 @@ namespace FrmPrincipal
             try
             {
                 vehiculos.IngresarVehiculo(txtBox_patente.Text, box_tipo.Text, box_marca.Text, txtBox_modelo.Text, txtBox_kilometros.Text);
+
+                var admLog = new Log();
+                admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Cargo un vehiculo");
                 Close();
             }
             catch (Exception ex)

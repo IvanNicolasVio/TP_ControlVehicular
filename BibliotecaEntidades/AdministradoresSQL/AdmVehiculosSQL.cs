@@ -1,4 +1,5 @@
-﻿using BibliotecaEntidades.Clases;
+﻿using BibliotecaEntidades.AdministradoresDeClases;
+using Clases;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -9,7 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Clases
+namespace BibliotecaEntidades.AdministradoresSQL
 {
     public class AdmVehiculosSQL : ConexionSQL<Vehiculo>, IDato2<Vehiculo>
     {
@@ -34,7 +35,10 @@ namespace Clases
                         var modelo = dataReader["Modelo"].ToString() ?? "";
                         var kilometros = Convert.ToInt32(dataReader["Kilometros"]);
                         var id = Convert.ToInt32(dataReader["id"]);
-                        vehiculos.Add(new Vehiculo(dominio, tipo, marca, modelo, kilometros, id));
+                        var activo = Validador.ValidarAdministradorPorInt(Convert.ToInt32(dataReader["Activo"]));
+                        var horarioSalida = dataReader["HorarioSalida"].ToString() ?? "";
+                        var chofer = Validador.ConvertToInt(dataReader["PersonaAsignada"]);
+                        vehiculos.Add(new Vehiculo(dominio, tipo, marca, modelo, kilometros, id,activo,horarioSalida,chofer));
                     }
                 }
                 return vehiculos;
@@ -49,7 +53,7 @@ namespace Clases
             }
         }
 
-        public override void Agregar(Vehiculo vehiculo) 
+        public override void Agregar(Vehiculo vehiculo)
         {
             try
             {
@@ -105,15 +109,14 @@ namespace Clases
             }
         }
 
-        public void Modificar(Vehiculo vehiculo,int kilometros, bool trueFalse, Persona personaAsignada,string horarioSalida)
+        public void Modificar(Vehiculo vehiculo, int kilometros, bool trueFalse, Persona personaAsignada, string horarioSalida)
         {
             try
             {
                 Abrir();
-                _command.CommandText = "UPDATE Vehiculos SET Kilometros = @kilometros,Activo = @activo,PersonaAsignada = @personaAsiganada,HorarioSalida = @horarioSalida WHERE Id = @id";
+                _command.CommandText = "UPDATE Vehiculos SET Kilometros = @kilometros,Activo = @activo,HorarioSalida = @horarioSalida WHERE Id = @id";
                 _command.Parameters.AddWithValue("@kilometros", kilometros);
                 _command.Parameters.AddWithValue("@activo", Validador.BoolAInt(trueFalse));
-                _command.Parameters.AddWithValue("@personaAsiganada", personaAsignada.Id);
                 _command.Parameters.AddWithValue("@horarioSalida", horarioSalida);
                 _command.Parameters.AddWithValue("@id", vehiculo.Id);
                 _command.ExecuteNonQuery();

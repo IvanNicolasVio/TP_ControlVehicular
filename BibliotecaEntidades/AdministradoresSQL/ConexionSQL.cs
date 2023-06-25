@@ -6,13 +6,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BibliotecaEntidades.Clases
+namespace BibliotecaEntidades.AdministradoresSQL
 {
     public abstract class ConexionSQL<T>
     {
-        protected  SqlConnection _connection;
-        protected  SqlCommand _command;
-        private  string _connectionString;
+        protected SqlConnection _connection;
+        protected SqlCommand _command;
+        private string _connectionString;
 
         public ConexionSQL()
         {
@@ -20,7 +20,7 @@ namespace BibliotecaEntidades.Clases
             _connectionString = @"Server=.;Database=ControlVehicular;Trusted_Connection=True;";
         }
 
-        public void Abrir() 
+        public void Abrir()
         {
             _connection = new SqlConnection(_connectionString);
             _command.Connection = _connection;
@@ -28,20 +28,20 @@ namespace BibliotecaEntidades.Clases
 
         }
 
-        public void Cerrar() 
+        public void Cerrar()
         {
             _connection.Close();
         }
 
-        public virtual List<T> Leer() 
+        public virtual List<T> Leer()
         {
             var lista = new List<T>();
             return lista;
         }
 
-        public virtual void Agregar(T objeto) 
+        public virtual void Agregar(T objeto)
         {
-            
+
         }
 
         public virtual void ModificarLista(T objeto)
@@ -49,14 +49,14 @@ namespace BibliotecaEntidades.Clases
 
         }
 
-        public virtual void ModificarBooleano(T objeto,bool truefalse) 
+        public virtual void ModificarBooleano(T objeto, bool truefalse)
         {
-        
+
         }
 
-        public virtual void Borrar(T objeto) 
+        public virtual void Borrar(T objeto)
         {
-        
+
         }
     }
 }

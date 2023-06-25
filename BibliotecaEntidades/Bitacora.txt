@@ -10,3 +10,17 @@ El vehiculo: IVO568
  de tipo Camion salio 23/05/2023 22:35 con Leonel Messi DNI: 10101010 y volvio 19/06/2023 14:14 |||  Kilometros anteriores 54450 |||  Kilometros actuales 64450
 El vehiculo: IVO568 
  de tipo Camion salio 19/06/2023 18:22 con Ivan Vio DNI: 41835848 y volvio 19/06/2023 18:35 |||  Kilometros anteriores 64450 |||  Kilometros actuales 75000
+El vehiculo: OPL564 
+ de tipo Camion salio 20/06/2023 22:38 con Ivan Vio DNI: 41835848 y volvio 20/06/2023 22:38 |||  Kilometros anteriores 7777 |||  Kilometros actuales 8000
+El vehiculo: OPL564 
+ de tipo Camion salio 20/06/2023 22:39 con Leonel Messi DNI: 10101010 y volvio 20/06/2023 22:39 |||  Kilometros anteriores 8000 |||  Kilometros actuales 9000
+El vehiculo: AF658HT 
+ de tipo Camioneta salio 20/06/2023 22:40 con Leonel Messi DNI: 10101010 y volvio 20/06/2023 22:40 |||  Kilometros anteriores 500 |||  Kilometros actuales 600
+El vehiculo: OPL564 
+ de tipo Camion salio 20/06/2023 22:40 con Ivan Galeano DNI: 45896584 y volvio 20/06/2023 22:40 |||  Kilometros anteriores 9000 |||  Kilometros actuales 10000
+El vehiculo: OPL564 
+ de tipo Camion salio 20/06/2023 22:44 con Ivan Vio DNI: 41835848 y volvio 20/06/2023 22:45 |||  Kilometros anteriores 10000 |||  Kilometros actuales 10000
+El vehiculo: AF658HT 
+ de tipo Camioneta salio 20/06/2023 22:44 con Leonel Messi DNI: 10101010 y volvio 20/06/2023 22:45 |||  Kilometros anteriores 600 |||  Kilometros actuales 650
+El vehiculo: NQP264 
+ de tipo Auto salio 20/06/2023 22:44 con Ivan Galeano DNI: 45896584 y volvio 20/06/2023 22:45 |||  Kilometros anteriores 200001 |||  Kilometros actuales 200001

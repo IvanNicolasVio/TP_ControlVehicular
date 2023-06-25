@@ -58,7 +58,7 @@
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Impact", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(1, 24);
+            label1.Location = new Point(1, 43);
             label1.Name = "label1";
             label1.Size = new Size(214, 23);
             label1.TabIndex = 2;
@@ -70,7 +70,7 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(1, 58);
+            label2.Location = new Point(1, 4);
             label2.Name = "label2";
             label2.Size = new Size(108, 20);
             label2.TabIndex = 3;

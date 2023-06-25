@@ -64,7 +64,7 @@
   <data name="menuStrip1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAqkAAAGmCAIAAADQ+orYAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAA/7JJREFUeF7U/eeXHcXVvo/7D/ihmTk5dPeZESaKnHPOOUhkDCbnDCLnYDIYMNlg
+        vAAADrwBlbxySQAA/7JJREFUeF7U/eeXHcXVvo/7D/ihmTk5dPeZESaKnHPOOUhkDCbnDCLnYDIYMNlg
         m5xzciQHA8YkkzMIAZKQhNIE+Xff+66qrnNmhPHzfJ4X37WuVWt3zxG8vPbetav6Zz21a4qNa4v13/Y0
         xfXF5o3Fxo2FRr7mNPHmhlLyuzbwMv1DIflDKbupgyL5Q7l1cxmPvbf0pH8AxdbNhewmgZcAb0Lg6L21
         NNpR7Lul2IfgNqzl+W/33Faa//bCaFKc/w4QAsfP7yz+/I7SAneWFriLLHhnacG7QZExg/JC9xDEWBe+
@@ -5621,7 +5621,7 @@
   <data name="menuToolStripMenuItem.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAqkAAAGmCAIAAADQ+orYAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAA/7JJREFUeF7U/eeXHcXVvo/7D/ihmTk5dPeZESaKnHPOOUhkDCbnDCLnYDIYMNlg
+        vAAADrwBlbxySQAA/7JJREFUeF7U/eeXHcXVvo/7D/ihmTk5dPeZESaKnHPOOUhkDCbnDCLnYDIYMNlg
         m5xzciQHA8YkkzMIAZKQhNIE+Xff+66qrnNmhPHzfJ4X37WuVWt3zxG8vPbetav6Zz21a4qNa4v13/Y0
         xfXF5o3Fxo2FRr7mNPHmhlLyuzbwMv1DIflDKbupgyL5Q7l1cxmPvbf0pH8AxdbNhewmgZcAb0Lg6L21
         NNpR7Lul2IfgNqzl+W/33Faa//bCaFKc/w4QAsfP7yz+/I7SAneWFriLLHhnacG7QZExg/JC9xDEWBe+
@@ -11178,7 +11178,7 @@
   <data name="choferesToolStripMenuItem.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAqkAAAGmCAIAAADQ+orYAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAA/7JJREFUeF7U/eeXHcXVvo/7D/ihmTk5dPeZESaKnHPOOUhkDCbnDCLnYDIYMNlg
+        vAAADrwBlbxySQAA/7JJREFUeF7U/eeXHcXVvo/7D/ihmTk5dPeZESaKnHPOOUhkDCbnDCLnYDIYMNlg
         m5xzciQHA8YkkzMIAZKQhNIE+Xff+66qrnNmhPHzfJ4X37WuVWt3zxG8vPbetav6Zz21a4qNa4v13/Y0
         xfXF5o3Fxo2FRr7mNPHmhlLyuzbwMv1DIflDKbupgyL5Q7l1cxmPvbf0pH8AxdbNhewmgZcAb0Lg6L21
         NNpR7Lul2IfgNqzl+W/33Faa//bCaFKc/w4QAsfP7yz+/I7SAneWFriLLHhnacG7QZExg/JC9xDEWBe+
@@ -16735,7 +16735,7 @@
   <data name="administrarUsuariosToolStripMenuItem.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAqkAAAGmCAIAAADQ+orYAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAA/7JJREFUeF7U/eeXHcXVvo/7D/ihmTk5dPeZESaKnHPOOUhkDCbnDCLnYDIYMNlg
+        vAAADrwBlbxySQAA/7JJREFUeF7U/eeXHcXVvo/7D/ihmTk5dPeZESaKnHPOOUhkDCbnDCLnYDIYMNlg
         m5xzciQHA8YkkzMIAZKQhNIE+Xff+66qrnNmhPHzfJ4X37WuVWt3zxG8vPbetav6Zz21a4qNa4v13/Y0
         xfXF5o3Fxo2FRr7mNPHmhlLyuzbwMv1DIflDKbupgyL5Q7l1cxmPvbf0pH8AxdbNhewmgZcAb0Lg6L21
         NNpR7Lul2IfgNqzl+W/33Faa//bCaFKc/w4QAsfP7yz+/I7SAneWFriLLHhnacG7QZExg/JC9xDEWBe+
@@ -22289,13 +22289,16 @@
         gg==
 </value>
   </data>
+  <metadata name="backgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>132, 17</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAqkAAAGmCAIAAADQ+orYAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAA/7JJREFUeF7U/eeXHcXVvo/7D/ihmTk5dPeZESaKnHPOOUhkDCbnDCLnYDIYMNlg
+        vAAADrwBlbxySQAA/7JJREFUeF7U/eeXHcXVvo/7D/ihmTk5dPeZESaKnHPOOUhkDCbnDCLnYDIYMNlg
         m5xzciQHA8YkkzMIAZKQhNIE+Xff+66qrnNmhPHzfJ4X37WuVWt3zxG8vPbetav6Zz21a4qNa4v13/Y0
         xfXF5o3Fxo2FRr7mNPHmhlLyuzbwMv1DIflDKbupgyL5Q7l1cxmPvbf0pH8AxdbNhewmgZcAb0Lg6L21
         NNpR7Lul2IfgNqzl+W/33Faa//bCaFKc/w4QAsfP7yz+/I7SAneWFriLLHhnacG7QZExg/JC9xDEWBe+

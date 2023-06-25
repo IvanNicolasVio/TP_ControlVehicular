@@ -1,13 +1,14 @@
-﻿using BibliotecaEntidades.Clases;
+﻿using BibliotecaEntidades.AdministradoresSQL;
+using Clases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Clases
+namespace BibliotecaEntidades.AdministradoresDeClases
 {
-    public class AdmVehiculos 
+    public class AdmVehiculos
     {
         private IDato2<Vehiculo> datos;
         public AdmVehiculos()
@@ -20,7 +21,7 @@ namespace Clases
             this.datos = datos;
         }
 
-        public List<Vehiculo> TraerLista() 
+        public List<Vehiculo> TraerLista()
         {
             return datos.Leer();
         }
@@ -30,9 +31,9 @@ namespace Clases
             datos.Borrar(vehiculo);
         }
 
-        public void EditarVehiculo(List<Vehiculo> lista) 
+        public void EditarVehiculo(List<Vehiculo> lista)
         {
-            foreach (Vehiculo vehiculo in lista) 
+            foreach (Vehiculo vehiculo in lista)
             {
                 datos.ModificarLista(vehiculo);
             }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BibliotecaEntidades.Clases
+namespace BibliotecaEntidades.AdministradoresDeClases
 {
     public interface IDato2<T>
     {

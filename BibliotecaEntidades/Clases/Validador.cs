@@ -292,5 +292,41 @@ namespace Clases
                 throw new Exception("Los kilometros tienen que ser mayores a los que ya tenia");
             }
         }
+
+        public static int? ConvertToInt(object obj)
+        {
+            if (obj == null)
+            {
+                return null;
+            }
+
+            if (obj is int)
+            {
+                return (int)obj;
+            }
+            return null;
+        }
+
+        public static void ValidarCantidadViajes(int cantidadViajes, int cantidadPedida) 
+        {
+            if(cantidadPedida > cantidadViajes) 
+            {
+                throw new Exception("Ingrese una cantidad valida");
+            }
+        }
+
+        public static int ValidarNumero(string numero) 
+        {
+            if (!int.TryParse(numero, out var numeroValidado))
+            {
+                throw new ArgumentException("No es un numero");
+            }
+            if (numeroValidado < 0)
+            {
+                throw new ArgumentException("El numero tiene que ser mayor a  0");
+            }
+
+            return numeroValidado;
+        }
     }   
 }

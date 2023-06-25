@@ -1,4 +1,5 @@
-﻿using Clases;
+﻿using BibliotecaEntidades.AdministradoresDeClases;
+using Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,5 +50,16 @@ namespace FrmPrincipal
             formPrincipal.ShowDialog();
         }
 
+        private void boton_adm_Click(object sender, EventArgs e)
+        {
+            txtBox_usuario.Text = "IvanVio";
+            txtBox_contrasenia.Text = "12345";
+        }
+
+        private void boton_normal_Click(object sender, EventArgs e)
+        {
+            txtBox_usuario.Text = "Lautaro";
+            txtBox_contrasenia.Text = "55555";
+        }
     }
 }

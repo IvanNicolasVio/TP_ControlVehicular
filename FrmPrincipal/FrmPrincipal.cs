@@ -1,3 +1,5 @@
+using Biblioteca_de_Formularios;
+using BibliotecaEntidades.AdministradoresDeClases;
 using BibliotecaEntidades.Clases;
 using Clases;
 using System.Windows.Forms;
@@ -11,12 +13,16 @@ namespace FrmPrincipal
         private Form1 _form1;
         public FrmContenedor(Form1 form1)
         {
+            var admLog = new Log();
+            admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Inicio sesion");
             InitializeComponent();
             _form1 = form1;
         }
 
         private void listaDeChoferesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            var admLog = new Log();
+            admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Abrio la lista de choferes");
             var formListaChoferes = new FrmListaChofer();
             formListaChoferes.ShowDialog();
 
@@ -24,24 +30,32 @@ namespace FrmPrincipal
 
         private void nuevoChoferToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            var admLog = new Log();
+            admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Abrio la creacion de choferes");
             var frmCargarChofer = new FrmCargarChofer();
             frmCargarChofer.ShowDialog();
         }
 
         private void crearUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            var admLog = new Log();
+            admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Abrio la creacion de usuarios");
             var frmCargarUsuario = new FrmCrearUsuario();
             frmCargarUsuario.ShowDialog();
         }
 
         private void modificarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            var admLog = new Log();
+            admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Abrio la modificacion de usuarios");
             var frmListaUsuario = new FrmListaUsuarios();
             frmListaUsuario.ShowDialog();
         }
 
         private void listaVehiculosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            var admLog = new Log();
+            admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Abrio la lista de vehiculos");
             var formLista = new FrmLista();
 
             formLista.ShowDialog();
@@ -49,6 +63,8 @@ namespace FrmPrincipal
 
         private void nuevoVehiculoToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            var admLog = new Log();
+            admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Abrio la creacion de vehiculos");
             var formCargarV = new FrmCargarV();
             formCargarV.ShowDialog();
         }
@@ -62,6 +78,7 @@ namespace FrmPrincipal
             txt_usuario.Text = "Nombre: " + AdmUsuarios.UsuarioActivo!.Nombre;
             if (AdmUsuarios.UsuarioActivo.Administrador)
             {
+                boton_ext_log.Visible = true;
                 administrarUsuariosToolStripMenuItem.Enabled = true;
                 nuevoChoferToolStripMenuItem.Enabled = true;
                 nuevoVehiculoToolStripMenuItem.Enabled = true;
@@ -69,6 +86,8 @@ namespace FrmPrincipal
             }
             else
             {
+
+                boton_ext_log.Visible = false;
                 administrarUsuariosToolStripMenuItem.Enabled = false;
                 nuevoChoferToolStripMenuItem.Enabled = false;
                 nuevoVehiculoToolStripMenuItem.Enabled = false;
@@ -218,6 +237,9 @@ namespace FrmPrincipal
         /// <param name="e"></param>
         private void boton_busqueda_Click(object sender, EventArgs e)
         {
+            var admLog = new Log();
+            admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Busco un camion");
+
             _botonActivo = true;
             var admVehiculos = new AdmVehiculos();
             var vehiculos = admVehiculos.TraerLista();
@@ -239,6 +261,8 @@ namespace FrmPrincipal
                         textBox_nombreChofer.Text = "";
                         textBox_horarioSalida.Text = "";
                         cargarChoferesNoActivos();
+                        boton_comenzar.Enabled = true;
+                        boton_terminar.Enabled = false;
 
                     }
                 }
@@ -252,12 +276,12 @@ namespace FrmPrincipal
                         textBox_marca.Text = vehiculo.Marca;
                         textBox_modelo.Text = vehiculo.Modelo;
                         textBox_tipo.Text = vehiculo.Tipo;
+                        cargarChoferesActivos();
                         comboBox_dniChofer.SelectedIndex = BuscarEnElComboBox(comboBox_dniChofer, vehiculo.PersonaAsignada.DNI.ToString());
                         textBox_nombreChofer.Text = vehiculo.PersonaAsignada.Presentarse();
                         textBox_horarioSalida.Text = vehiculo.HorarioSalida;
                         boton_comenzar.Enabled = false;
                         boton_terminar.Enabled = true;
-                        cargarChoferesActivos();
                     }
                 }
             }
@@ -278,11 +302,11 @@ namespace FrmPrincipal
 
                 if (valorComboBox == textoBuscado)
                 {
-                    return i; 
+                    return i;
                 }
             }
 
-            return -1; 
+            return -1;
         }
 
         private void comboBox_dniChofer_SelectedIndexChanged(object sender, EventArgs e)
@@ -292,8 +316,13 @@ namespace FrmPrincipal
 
         private void boton_comenzar_Click(object sender, EventArgs e)
         {
+
+
             try
             {
+                var admLog = new Log();
+                admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Comenzo un viaje");
+
                 textBox_horarioSalida.Text = Horario.HorarioActual();
                 var choferes = new AdmChoferes();
                 var vehiculos = new AdmVehiculos();
@@ -313,6 +342,8 @@ namespace FrmPrincipal
 
         private void boton_terminar_Click(object sender, EventArgs e)
         {
+            var admLog = new Log();
+            admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Termino un viaje");
             var choferes = new AdmChoferes();
             var vehiculos = new AdmVehiculos();
             Persona chofer = choferes.EncontrarChofer(comboBox_dniChofer.Text);
@@ -323,13 +354,14 @@ namespace FrmPrincipal
             choferes.DesactivarChofer(chofer);
             vehiculos.CargarEntradaVehiculo(vehiculo.Dominio, nuevosKm);
             var horarioEntrada = Horario.HorarioActual();
-            var bitacora = new Bitacora();
-            bitacora.AgregarTexto(vehiculo.MostrarDetallesDeSalida(horarioEntrada, nuevosKm));
+            AdmBitacora.CargarVehiculo(vehiculo, horarioEntrada, nuevosKm);
             HacerElementosVisibles(false);
         }
 
         private void button_cerrarSesion_Click(object sender, EventArgs e)
         {
+            var admLog = new Log();
+            admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Cerro sesion");
             _form1.Show();
             Close();
 
@@ -342,5 +374,23 @@ namespace FrmPrincipal
             _form1.Hide();
         }
 
+        private void boton_ext_pdf_Click(object sender, EventArgs e)
+        {
+            var admLog = new Log();
+            admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Exporto la lista de viajes a PDF");
+
+            var viajes = new FrmViajes();
+            viajes.ShowDialog();
+            var listaElementos = AdmBitacora.TraerLista(viajes.Viajes);
+            Informes<ElementosDeBitacora>.GuardarPDF(listaElementos);
+        }
+
+        private void boton_ext_log_Click(object sender, EventArgs e)
+        {
+            var log = new Log();
+            log.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Exporto la lista de logs a PDF");
+            var admLogs = new AdmLogs();
+            Informes<LogParaPdf>.GuardarLogsPDF(admLogs.DevolverLogs());
+        }
     }
 }

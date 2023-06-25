@@ -1,4 +1,5 @@
-﻿using BibliotecaEntidades.Clases;
+﻿using BibliotecaEntidades.AdministradoresDeClases;
+using Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +12,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Clases
+namespace BibliotecaEntidades.AdministradoresSQL
 {
     public class AdmChoferesSQL : ConexionSQL<Persona>, IDato<Persona>
     {
@@ -35,7 +36,9 @@ namespace Clases
                         var dni = Convert.ToInt32(dataReader["DNI"]);
                         var edad = Convert.ToInt32(dataReader["Edad"]);
                         var id = Convert.ToInt32(dataReader["id"]);
-                        choferes.Add(new Persona(nombre, apellido, dni, edad, id));
+                        var activo = Convert.ToInt32(dataReader["Activo"]);
+                        var active = Validador.ValidarAdministradorPorInt(activo);
+                        choferes.Add(new Persona(nombre, apellido, dni, edad, id, active));
                     }
                 }
                 return choferes;
@@ -50,16 +53,17 @@ namespace Clases
             }
         }
 
-        public override void Agregar(Persona chofer) 
+        public override void Agregar(Persona chofer)
         {
             try
             {
                 Abrir();
-                _command.CommandText = $"INSERT INTO Choferes (Nombre,Apellido,DNI,Edad) VALUES (@nombre,@apellido,@dni,@edad)";
+                _command.CommandText = $"INSERT INTO Choferes (Nombre,Apellido,DNI,Edad,Activo) VALUES (@nombre,@apellido,@dni,@edad,@activo)";
                 _command.Parameters.AddWithValue("nombre", chofer.Nombre);
                 _command.Parameters.AddWithValue("apellido", chofer.Apellido);
                 _command.Parameters.AddWithValue("dni", chofer.DNI);
                 _command.Parameters.AddWithValue("edad", chofer.Edad);
+                _command.Parameters.AddWithValue("activo", Validador.BoolAInt(chofer.Activo));
                 _command.ExecuteNonQuery();
             }
             catch

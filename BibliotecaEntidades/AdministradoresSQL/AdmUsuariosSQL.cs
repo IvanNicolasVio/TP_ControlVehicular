@@ -1,4 +1,5 @@
-﻿using BibliotecaEntidades.Clases;
+﻿using BibliotecaEntidades.AdministradoresDeClases;
+using Clases;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Clases
+namespace BibliotecaEntidades.AdministradoresSQL
 {
     public class AdmUsuariosSQL : ConexionSQL<Usuario>, IDato<Usuario>
     {
@@ -22,7 +23,7 @@ namespace Clases
                 var usuarios = new List<Usuario>();
                 Abrir();
                 _command.CommandText = "SELECT * FROM Usuarios";
-                
+
                 using (var dataReader = _command.ExecuteReader())
                 {
                     while (dataReader.Read())

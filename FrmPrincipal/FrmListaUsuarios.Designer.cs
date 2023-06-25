@@ -35,12 +35,11 @@
             button1 = new Button();
             textBox_usuario = new TextBox();
             textBox_contrasenia = new TextBox();
-            boton_editar = new Button();
             boton_salir = new Button();
             label_usuario = new Label();
             label2 = new Label();
-            label_administrador = new Label();
-            comboBox_administrador = new ComboBox();
+            boton_exp_json = new Button();
+            boton_exp_csv = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -61,17 +60,16 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.BackgroundImage = (Image)resources.GetObject("splitContainer1.Panel2.BackgroundImage");
+            splitContainer1.Panel2.Controls.Add(boton_exp_csv);
+            splitContainer1.Panel2.Controls.Add(boton_exp_json);
             splitContainer1.Panel2.Controls.Add(boton_borrar);
             splitContainer1.Panel2.Controls.Add(button1);
             splitContainer1.Panel2.Controls.Add(textBox_usuario);
             splitContainer1.Panel2.Controls.Add(textBox_contrasenia);
-            splitContainer1.Panel2.Controls.Add(boton_editar);
             splitContainer1.Panel2.Controls.Add(boton_salir);
             splitContainer1.Panel2.Controls.Add(label_usuario);
             splitContainer1.Panel2.Controls.Add(label2);
-            splitContainer1.Panel2.Controls.Add(label_administrador);
-            splitContainer1.Panel2.Controls.Add(comboBox_administrador);
-            splitContainer1.Size = new Size(409, 546);
+            splitContainer1.Size = new Size(409, 383);
             splitContainer1.SplitterDistance = 134;
             splitContainer1.TabIndex = 0;
             // 
@@ -89,16 +87,16 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(134, 546);
+            dataGridView1.Size = new Size(134, 383);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // boton_borrar
             // 
             boton_borrar.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            boton_borrar.Location = new Point(85, 447);
+            boton_borrar.Location = new Point(28, 319);
             boton_borrar.Name = "boton_borrar";
-            boton_borrar.Size = new Size(85, 35);
+            boton_borrar.Size = new Size(100, 35);
             boton_borrar.TabIndex = 9;
             boton_borrar.Text = "BORRAR";
             boton_borrar.UseVisualStyleBackColor = true;
@@ -117,35 +115,24 @@
             // 
             // textBox_usuario
             // 
-            textBox_usuario.Location = new Point(28, 90);
+            textBox_usuario.Location = new Point(28, 91);
             textBox_usuario.Name = "textBox_usuario";
             textBox_usuario.Size = new Size(201, 23);
             textBox_usuario.TabIndex = 7;
             // 
             // textBox_contrasenia
             // 
-            textBox_contrasenia.Location = new Point(28, 241);
+            textBox_contrasenia.Location = new Point(28, 184);
             textBox_contrasenia.Name = "textBox_contrasenia";
             textBox_contrasenia.Size = new Size(201, 23);
             textBox_contrasenia.TabIndex = 6;
             // 
-            // boton_editar
-            // 
-            boton_editar.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            boton_editar.Location = new Point(28, 499);
-            boton_editar.Name = "boton_editar";
-            boton_editar.Size = new Size(85, 35);
-            boton_editar.TabIndex = 5;
-            boton_editar.Text = "EDITAR";
-            boton_editar.UseVisualStyleBackColor = true;
-            boton_editar.Click += boton_editar_Click;
-            // 
             // boton_salir
             // 
             boton_salir.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            boton_salir.Location = new Point(144, 499);
+            boton_salir.Location = new Point(130, 319);
             boton_salir.Name = "boton_salir";
-            boton_salir.Size = new Size(85, 35);
+            boton_salir.Size = new Size(99, 35);
             boton_salir.TabIndex = 4;
             boton_salir.Text = "SALIR";
             boton_salir.UseVisualStyleBackColor = true;
@@ -156,7 +143,7 @@
             label_usuario.AutoSize = true;
             label_usuario.BackColor = Color.Transparent;
             label_usuario.Font = new Font("Impact", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label_usuario.Location = new Point(28, 41);
+            label_usuario.Location = new Point(28, 42);
             label_usuario.Name = "label_usuario";
             label_usuario.Size = new Size(74, 23);
             label_usuario.TabIndex = 3;
@@ -167,40 +154,40 @@
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Impact", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(28, 193);
+            label2.Location = new Point(28, 139);
             label2.Name = "label2";
             label2.Size = new Size(106, 23);
             label2.TabIndex = 2;
             label2.Text = "CONTRASEÑA";
             // 
-            // label_administrador
+            // boton_exp_json
             // 
-            label_administrador.AutoSize = true;
-            label_administrador.BackColor = Color.Transparent;
-            label_administrador.Font = new Font("Impact", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label_administrador.Location = new Point(28, 346);
-            label_administrador.Name = "label_administrador";
-            label_administrador.Size = new Size(153, 23);
-            label_administrador.TabIndex = 1;
-            label_administrador.Text = "¿ADMINISTRADOR?";
+            boton_exp_json.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            boton_exp_json.Location = new Point(70, 268);
+            boton_exp_json.Name = "boton_exp_json";
+            boton_exp_json.Size = new Size(121, 35);
+            boton_exp_json.TabIndex = 10;
+            boton_exp_json.Text = "EXPORTAR JSON";
+            boton_exp_json.UseVisualStyleBackColor = true;
+            boton_exp_json.Click += boton_exp_json_Click;
             // 
-            // comboBox_administrador
+            // boton_exp_csv
             // 
-            comboBox_administrador.AutoCompleteCustomSource.AddRange(new string[] { "SI", "NO" });
-            comboBox_administrador.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox_administrador.FormattingEnabled = true;
-            comboBox_administrador.Items.AddRange(new object[] { "SI", "NO" });
-            comboBox_administrador.Location = new Point(28, 392);
-            comboBox_administrador.Name = "comboBox_administrador";
-            comboBox_administrador.Size = new Size(201, 23);
-            comboBox_administrador.TabIndex = 0;
+            boton_exp_csv.Font = new Font("Impact", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            boton_exp_csv.Location = new Point(70, 227);
+            boton_exp_csv.Name = "boton_exp_csv";
+            boton_exp_csv.Size = new Size(121, 35);
+            boton_exp_csv.TabIndex = 11;
+            boton_exp_csv.Text = "EXPORTAR CSV";
+            boton_exp_csv.UseVisualStyleBackColor = true;
+            boton_exp_csv.Click += boton_exp_csv_Click;
             // 
             // FrmListaUsuarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(409, 546);
+            ClientSize = new Size(409, 383);
             Controls.Add(splitContainer1);
             MaximizeBox = false;
             Name = "FrmListaUsuarios";
@@ -220,13 +207,12 @@
         private DataGridView dataGridView1;
         private TextBox textBox_usuario;
         private TextBox textBox_contrasenia;
-        private Button boton_editar;
         private Button boton_salir;
         private Label label_usuario;
         private Label label2;
-        private Label label_administrador;
-        private ComboBox comboBox_administrador;
         private Button button1;
         private Button boton_borrar;
+        private Button boton_exp_csv;
+        private Button boton_exp_json;
     }
 }

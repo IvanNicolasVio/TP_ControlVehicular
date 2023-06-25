@@ -1,4 +1,6 @@
-﻿using Clases;
+﻿using BibliotecaEntidades.AdministradoresDeClases;
+using BibliotecaEntidades.Clases;
+using Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,9 +34,13 @@ namespace FrmPrincipal
         {
             try
             {
+
                 var km = Validador.ValidarKilometros(textBox_km.Text);
                 Validador.ValidarKmAnteriores(_vehiculo, km);
                 Kilometros = km;
+
+                var admLog = new Log();
+                admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Cargo kilometros en un vehiculo");
                 Close();
             }
             catch (Exception ex)

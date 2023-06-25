@@ -35,6 +35,8 @@
             label2 = new Label();
             txtBox_usuario = new TextBox();
             txtBox_contrasenia = new TextBox();
+            boton_normal = new Button();
+            boton_adm = new Button();
             SuspendLayout();
             // 
             // button1
@@ -99,12 +101,34 @@
             txtBox_contrasenia.TabIndex = 5;
             txtBox_contrasenia.UseSystemPasswordChar = true;
             // 
+            // boton_normal
+            // 
+            boton_normal.Location = new Point(211, 12);
+            boton_normal.Name = "boton_normal";
+            boton_normal.Size = new Size(43, 25);
+            boton_normal.TabIndex = 6;
+            boton_normal.Text = "NRM";
+            boton_normal.UseVisualStyleBackColor = true;
+            boton_normal.Click += boton_normal_Click;
+            // 
+            // boton_adm
+            // 
+            boton_adm.Location = new Point(162, 12);
+            boton_adm.Name = "boton_adm";
+            boton_adm.Size = new Size(43, 25);
+            boton_adm.TabIndex = 7;
+            boton_adm.Text = "ADM";
+            boton_adm.UseVisualStyleBackColor = true;
+            boton_adm.Click += boton_adm_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(257, 354);
+            Controls.Add(boton_adm);
+            Controls.Add(boton_normal);
             Controls.Add(txtBox_contrasenia);
             Controls.Add(txtBox_usuario);
             Controls.Add(label2);
@@ -126,5 +150,7 @@
         private Label label2;
         private TextBox txtBox_usuario;
         private TextBox txtBox_contrasenia;
+        private Button boton_normal;
+        private Button boton_adm;
     }
 }

@@ -1,1 +1,23 @@
-[{"Activo":false,"Nombre":"Ivan","Apellido":"Galeano","DNI":45896584,"Edad":26},{"Activo":false,"Nombre":"Leonel","Apellido":"Messi","DNI":10101010,"Edad":35},{"Activo":false,"Nombre":"Ivan","Apellido":"Vio","DNI":41835848,"Edad":24}]
+[
+  {
+    "Activo": false,
+    "Nombre": "Ivan",
+    "Apellido": "Galeano",
+    "DNI": 45896584,
+    "Edad": 26
+  },
+  {
+    "Activo": false,
+    "Nombre": "Leonel",
+    "Apellido": "Messi",
+    "DNI": 10101010,
+    "Edad": 35
+  },
+  {
+    "Activo": false,
+    "Nombre": "Ivan",
+    "Apellido": "Vio",
+    "DNI": 41835848,
+    "Edad": 24
+  }
+]

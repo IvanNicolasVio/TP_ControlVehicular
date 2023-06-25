@@ -1,4 +1,6 @@
-﻿using Clases;
+﻿using BibliotecaEntidades.AdministradoresDeClases;
+using BibliotecaEntidades.Clases;
+using Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,6 +28,9 @@ namespace FrmPrincipal
             var admVehiculos = new AdmVehiculos();
             var vehiculos = admVehiculos.TraerLista();
             dataGridView1.DataSource = vehiculos;
+
+            var admLog = new Log();
+            admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Mostro la lista de vehiculos");
         }
 
         private void boton_editar_Click(object sender, EventArgs e)
@@ -33,6 +38,9 @@ namespace FrmPrincipal
             var admVehiculos = new AdmVehiculos();
             var vehiculos = (List<Vehiculo>)dataGridView1.DataSource;
             admVehiculos.EditarVehiculo(vehiculos);
+
+            var admLog = new Log();
+            admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Edito la lista de vehiculos");
         }
 
 
@@ -71,6 +79,43 @@ namespace FrmPrincipal
                 }
 
                 dataGridView1.Columns.Clear();
+
+                var admLog = new Log();
+                admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Borro un vehiculo");
+            }
+        }
+
+        private void boton_exp_csv_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                var datosDataGrid = (List<Vehiculo>)dataGridView1.DataSource;
+                Informes<Vehiculo>.GuardarCSV(datosDataGrid);
+
+                var admLog = new Log();
+                admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Exporto lista de vehiculos a CSV");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("La lista esta vacia");
+            }
+        }
+
+        private void boton_exp_json_Click(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                var datosDataGrid = (List<Vehiculo>)dataGridView1.DataSource;
+                Informes<Vehiculo>.GuardarJson(datosDataGrid);
+
+                var admLog = new Log();
+                admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Exporto lista de vehiculos a JSON");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("La lista esta vacia");
             }
         }
     }

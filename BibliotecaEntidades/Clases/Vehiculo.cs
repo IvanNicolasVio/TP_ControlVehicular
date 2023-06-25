@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BibliotecaEntidades.AdministradoresDeClases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace Clases
         private int _kilometros;
         private bool _activo;
         private Persona _persona;
+        private int? id_personaAsignada;
         private string _horarioSalida;
         private int _id;
 
@@ -79,15 +81,27 @@ namespace Clases
             
         }
 
-        public Vehiculo(string dominio, string tipo, string marca, string modelo, int kilometros,int id)
+        public Vehiculo(string dominio, string tipo, string marca, string modelo, int kilometros,int id,bool activo,string horarioSalida,int? personaAsignada)
         {
             Dominio = dominio;
             Tipo = tipo;
             Marca = marca;
             Modelo = modelo;
             Kilometros = kilometros;
-            Activo = false;
+            Activo = activo;
+            HorarioSalida = horarioSalida;
+            PersonaAsignada = EncontrarChofer(personaAsignada);
             Id = id;
+        }
+
+        public Persona EncontrarChofer(int? id) 
+        {
+            if(id is int) 
+            {
+                var admChoferes = new AdmChoferes();
+                return admChoferes.EncontrarChoferPorId(id);
+            }
+            else { return null; }
         }
 
 
@@ -129,6 +143,12 @@ namespace Clases
             }
             else { return true; }
 
+        }
+
+        public override string ToString()
+        {
+            var cadenaTexto = $"{Id},{Dominio},{Tipo},{Marca},{Modelo},{Kilometros}";
+            return cadenaTexto;
         }
     }
 }

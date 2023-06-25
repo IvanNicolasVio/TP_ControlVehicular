@@ -9,6 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using BibliotecaEntidades.AdministradoresSQL;
+using BibliotecaEntidades.AdministradoresDeClases;
+using BibliotecaEntidades.Clases;
 
 namespace FrmPrincipal
 {
@@ -35,6 +38,8 @@ namespace FrmPrincipal
 
         private void boton_salir_Click(object sender, EventArgs e)
         {
+            var admLog = new Log();
+            admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Salio de la lista de usuarios");
             Close();
         }
 
@@ -50,16 +55,13 @@ namespace FrmPrincipal
                 // Mostrar los valores en los TextBox
                 textBox_usuario.Text = name;
                 textBox_contrasenia.Text = password;
-                if (isAdmin)
-                {
-                    comboBox_administrador.TabIndex = 0;
-                }
-                else
-                {
-                    comboBox_administrador.TabIndex = 1;
-                };
+
+                var admLog = new Log();
+                admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Trajo un usuario");
 
             }
+
+
         }
 
         private void boton_borrar_Click(object sender, EventArgs e)
@@ -80,35 +82,43 @@ namespace FrmPrincipal
                 }
                 dataGridView1.Columns.Clear();
                 OrdenarFrm();
+
+                var admLog = new Log();
+                admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Borro un usuario");
             }
         }
 
-        private void boton_editar_Click(object sender, EventArgs e)
+        private void boton_exp_csv_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 0)
+            
+            try
             {
-                var json = new ManejadorUsuarioJson();
-                var usuarios = json.ObtenerDatos();
-                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-                Usuario selectedData = (Usuario)selectedRow.DataBoundItem;
-                try
-                {
-                    foreach (var usuario in usuarios)
-                    {
-                        if (usuario == selectedData)
-                        {
-                            usuario.editarUsuario(textBox_usuario.Text, textBox_contrasenia.Text, comboBox_administrador.Text);
+                var datosDataGrid = (List<Usuario>)dataGridView1.DataSource;
+                Informes<Usuario>.GuardarCSV(datosDataGrid);
 
-                            break;
-                        }
-                    }
-                    json.Guardar(usuarios);
-                    dataGridView1.DataSource = usuarios;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                var admLog = new Log();
+                admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Exporto lista de usuarios a CSV");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("La lista esta vacia");
+            }
+        }
+
+        private void boton_exp_json_Click(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                var datosDataGrid = (List<Usuario>)dataGridView1.DataSource;
+                Informes<Usuario>.GuardarJson(datosDataGrid);
+
+                var admLog = new Log();
+                admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Exporto lista de usuarios a JSON");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("La lista esta vacia");
             }
         }
     }
