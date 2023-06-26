@@ -106,66 +106,6 @@ namespace FrmPrincipal
             formCargarV.ShowDialog();
         }
 
-        /// <summary>
-        /// Configura los labels segun si el Usuario es administrador o no
-        /// </summary>
-        private void organizarFormulario()
-        {
-
-            txt_usuario.Text = "Nombre: " + AdmUsuarios.UsuarioActivo!.Nombre;
-            if (AdmUsuarios.UsuarioActivo.Administrador)
-            {
-                boton_ext_log.Visible = true;
-                administrarUsuariosToolStripMenuItem.Enabled = true;
-                nuevoChoferToolStripMenuItem.Enabled = true;
-                nuevoVehiculoToolStripMenuItem.Enabled = true;
-                txt_tipoUsuario.Text = "Tipo de usuario: Administrador";
-            }
-            else
-            {
-
-                boton_ext_log.Visible = false;
-                administrarUsuariosToolStripMenuItem.Enabled = false;
-                nuevoChoferToolStripMenuItem.Enabled = false;
-                nuevoVehiculoToolStripMenuItem.Enabled = false;
-                txt_tipoUsuario.Text = "Tipo de usuario: Normal";
-            }
-            if (!_botonActivo)
-            {
-                HacerElementosVisibles(false);
-            }
-
-        }
-
-        /// <summary>
-        /// Agrega las patentes a un combobox
-        /// </summary>
-        private void cargarPatentes()
-        {
-            var admVehiculos = new AdmVehiculos();
-            var vehiculos = admVehiculos.TraerLista();
-            foreach (var vehiculo in vehiculos)
-            {
-                comboBox_busqueda.Items.Add(vehiculo.Dominio);
-            }
-        }
-
-        /// <summary>
-        /// Agrega los choferes que no estan activos a un combobox
-        /// </summary>
-        private void cargarChoferesNoActivos()
-        {
-            var admChoferes = new AdmChoferes();
-            var choferes = admChoferes.TraerLista();
-
-            foreach (var chofer in choferes)
-            {
-                if (!chofer.Activo)
-                {
-                    comboBox_dniChofer.Items.Add(chofer.DNI);
-                }
-            }
-        }
 
         /// <summary>
         /// Agrega los choferes que estan activos a un combobox
@@ -369,7 +309,6 @@ namespace FrmPrincipal
             {
                 var admLog = new Log();
                 admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Comenzo un viaje");
-
                 textBox_horarioSalida.Text = Horario.HorarioActual();
                 var choferes = new AdmChoferes();
                 var vehiculos = new AdmVehiculos();
@@ -379,7 +318,6 @@ namespace FrmPrincipal
                 choferes.HacerActivoChofer(chofer);
                 MessageBox.Show($"Horario de salida: {textBox_horarioSalida.Text}");
                 HacerElementosVisibles(false);
-
                 var admVehiculos = new AdmVehiculos();
                 ConfigurarGraficoTorta(admVehiculos.TraerLista(), chart1);
             }
@@ -498,6 +436,67 @@ namespace FrmPrincipal
             viajes.ShowDialog();
             var listaElementos = AdmBitacora.TraerLista(viajes.Viajes);
             Informes<ElementosDeBitacora>.GuardarPDF(listaElementos);
+        }
+
+        /// <summary>
+        /// Configura los labels segun si el Usuario es administrador o no
+        /// </summary>
+        private void organizarFormulario()
+        {
+
+            txt_usuario.Text = "Nombre: " + AdmUsuarios.UsuarioActivo!.Nombre;
+            if (AdmUsuarios.UsuarioActivo.Administrador)
+            {
+                boton_ext_log.Visible = true;
+                administrarUsuariosToolStripMenuItem.Enabled = true;
+                nuevoChoferToolStripMenuItem.Enabled = true;
+                nuevoVehiculoToolStripMenuItem.Enabled = true;
+                txt_tipoUsuario.Text = "Tipo de usuario: Administrador";
+            }
+            else
+            {
+
+                boton_ext_log.Visible = false;
+                administrarUsuariosToolStripMenuItem.Enabled = false;
+                nuevoChoferToolStripMenuItem.Enabled = false;
+                nuevoVehiculoToolStripMenuItem.Enabled = false;
+                txt_tipoUsuario.Text = "Tipo de usuario: Normal";
+            }
+            if (!_botonActivo)
+            {
+                HacerElementosVisibles(false);
+            }
+
+        }
+
+        /// <summary>
+        /// Agrega las patentes a un combobox
+        /// </summary>
+        private void cargarPatentes()
+        {
+            var admVehiculos = new AdmVehiculos();
+            var vehiculos = admVehiculos.TraerLista();
+            foreach (var vehiculo in vehiculos)
+            {
+                comboBox_busqueda.Items.Add(vehiculo.Dominio);
+            }
+        }
+
+        /// <summary>
+        /// Agrega los choferes que no estan activos a un combobox
+        /// </summary>
+        private void cargarChoferesNoActivos()
+        {
+            var admChoferes = new AdmChoferes();
+            var choferes = admChoferes.TraerLista();
+
+            foreach (var chofer in choferes)
+            {
+                if (!chofer.Activo)
+                {
+                    comboBox_dniChofer.Items.Add(chofer.DNI);
+                }
+            }
         }
 
         /// <summary>

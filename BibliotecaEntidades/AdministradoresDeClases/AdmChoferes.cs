@@ -136,5 +136,23 @@ namespace BibliotecaEntidades.AdministradoresDeClases
                 }
             }
         }
+
+        /// <summary>
+        /// Elimina un chofer de la tabla si coincide con selectedData
+        /// </summary>
+        /// <param name="choferes"></param>
+        /// <param name="selectedData"></param>
+        public void EliminarChofer(List<Persona> choferes,Persona selectedData) 
+        {
+
+            foreach (var chofer in choferes)
+            {
+                if (chofer == selectedData)
+                {
+                    this.Borrar(chofer);
+                    break;
+                }
+            }
+        }
     }
 }

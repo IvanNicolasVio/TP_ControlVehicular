@@ -119,5 +119,22 @@ namespace BibliotecaEntidades.AdministradoresDeClases
             Validador.VerificarUsuarios(usuario, usuarios);
             datos.Agregar(usuario);
         }
+
+        /// <summary>
+        /// Borra un usuario de la tabla si hay coincidencia con selecteData
+        /// </summary>
+        /// <param name="usuarios"></param>
+        /// <param name="selectedData"></param>
+        public void BorrarUsuario(List<Usuario> usuarios,Usuario selectedData) 
+        {
+            foreach (var usuario in usuarios)
+            {
+                if (usuario == selectedData)
+                {
+                    this.Borrar(usuario);
+                    break;
+                }
+            }
+        }
     }
 }

@@ -66,15 +66,7 @@ namespace FrmPrincipal
                 var choferes = admChofer.TraerLista();
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
                 Persona selectedData = (Persona)selectedRow.DataBoundItem;
-                foreach (var chofer in choferes)
-                {
-                    if (chofer == selectedData)
-                    {
-                        admChofer.Borrar(chofer);
-                        break;
-                    }
-                }
-
+                admChofer.EliminarChofer(choferes, selectedData);
                 dataGridView1.Columns.Clear();
             }
             var admLog = new Log();

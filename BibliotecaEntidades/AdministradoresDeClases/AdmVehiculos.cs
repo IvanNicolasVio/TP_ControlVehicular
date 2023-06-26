@@ -152,5 +152,17 @@ namespace BibliotecaEntidades.AdministradoresDeClases
             return null;
 
         }
+
+        public void BorrarVehiculo(List<Vehiculo> vehiculos, Vehiculo selectedData) 
+        {
+            foreach (var vehiculo in vehiculos)
+            {
+                if (vehiculo == selectedData)
+                {
+                    this.Borrar(vehiculo);
+                    break;
+                }
+            }
+        }
     }
 }

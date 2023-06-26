@@ -64,12 +64,8 @@ namespace FrmPrincipal
             {
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
                 Usuario selectedData = (Usuario)selectedRow.DataBoundItem;
-                string name = selectedData.Nombre.ToString();
-                string password = selectedData.Contrasenia.ToString();
-                bool isAdmin = selectedData.Administrador;
-                textBox_usuario.Text = name;
-                textBox_contrasenia.Text = password;
-
+                textBox_usuario.Text = selectedData.Nombre.ToString();
+                textBox_contrasenia.Text = selectedData.Contrasenia.ToString();
                 var admLog = new Log();
                 admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Trajo un usuario");
 
@@ -91,17 +87,9 @@ namespace FrmPrincipal
                 var usuarios = admUsuarios.TraerLista();
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
                 Usuario selectedData = (Usuario)selectedRow.DataBoundItem;
-                foreach (var usuario in usuarios)
-                {
-                    if (usuario == selectedData)
-                    {
-                        admUsuarios.Borrar(usuario);
-                        break;
-                    }
-                }
+                admUsuarios.BorrarUsuario(usuarios, selectedData);
                 dataGridView1.Columns.Clear();
                 OrdenarFrm();
-
                 var admLog = new Log();
                 admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Borro un usuario");
             }

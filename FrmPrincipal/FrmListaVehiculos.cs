@@ -33,7 +33,6 @@ namespace FrmPrincipal
             var admVehiculos = new AdmVehiculos();
             var vehiculos = admVehiculos.TraerLista();
             dataGridView1.DataSource = vehiculos;
-
             var admLog = new Log();
             admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Mostro la lista de vehiculos");
         }
@@ -49,7 +48,6 @@ namespace FrmPrincipal
             var admVehiculos = new AdmVehiculos();
             var vehiculos = (List<Vehiculo>)dataGridView1.DataSource;
             admVehiculos.EditarVehiculo(vehiculos);
-
             var admLog = new Log();
             admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Edito la lista de vehiculos");
         }
@@ -88,17 +86,8 @@ namespace FrmPrincipal
                 var vehiculos = admVehiculos.TraerLista();
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
                 Vehiculo selectedData = (Vehiculo)selectedRow.DataBoundItem;
-                foreach (var vehiculo in vehiculos)
-                {
-                    if (vehiculo == selectedData)
-                    {
-                        admVehiculos.Borrar(vehiculo);
-                        break;
-                    }
-                }
-
+                admVehiculos.BorrarVehiculo(vehiculos, selectedData);
                 dataGridView1.Columns.Clear();
-
                 var admLog = new Log();
                 admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Borro un vehiculo");
             }
