@@ -16,6 +16,10 @@ namespace BibliotecaEntidades.AdministradoresSQL
         {
         }
 
+        /// <summary>
+        /// Lee y devuelve una lista de usuarios desde sql
+        /// </summary>
+        /// <returns></returns>
         public override List<Usuario> Leer()
         {
             try
@@ -47,6 +51,10 @@ namespace BibliotecaEntidades.AdministradoresSQL
             }
         }
 
+        /// <summary>
+        /// Agrega un usuario a una tabla de usuarios de sql
+        /// </summary>
+        /// <param name="usuario"></param>
         public override void Agregar(Usuario usuario)
         {
             try
@@ -71,6 +79,10 @@ namespace BibliotecaEntidades.AdministradoresSQL
             }
         }
 
+        /// <summary>
+        /// Borra un usuario de una tabla de usuarios de sql
+        /// </summary>
+        /// <param name="usuario"></param>
         public override void Borrar(Usuario usuario)
         {
             try
@@ -91,6 +103,11 @@ namespace BibliotecaEntidades.AdministradoresSQL
 
         }
 
+
+        /// <summary>
+        /// Modifica en la tabla de usuarios a un usuario
+        /// </summary>
+        /// <param name="usuario"></param>
         public override void ModificarLista(Usuario usuario)
         {
             using (var command = new SqlCommand())

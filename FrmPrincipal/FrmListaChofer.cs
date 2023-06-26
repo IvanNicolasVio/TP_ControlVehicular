@@ -21,10 +21,14 @@ namespace FrmPrincipal
             OrdenarFrm();
         }
 
+
+        /// <summary>
+        /// Muesta la lista de choferes en un datagrid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_mostrar_Click(object sender, EventArgs e)
         {
-            //var json = new ManejadorChoferJson();
-            //var choferes = json.ObtenerDatos();
             var admChoferes = new AdmChoferes();
             var choferes = admChoferes.TraerLista();
             dataGridView1.DataSource = choferes;
@@ -33,6 +37,11 @@ namespace FrmPrincipal
             admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Mostro la lista de choferes");
         }
 
+        /// <summary>
+        /// Luego de editar el datagrid, se usa para guardar la lista editada
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_editar_Click(object sender, EventArgs e)
         {
             var admChoferes = new AdmChoferes();
@@ -43,6 +52,12 @@ namespace FrmPrincipal
             admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Edito la lista de choferes");
         }
 
+
+        /// <summary>
+        /// Elimina la fila que este seleccionada en el datagrid y en la base de datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_eliminar_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -86,6 +101,12 @@ namespace FrmPrincipal
             }
         }
 
+
+        /// <summary>
+        /// exporta un json de la lista de choferes a la pc del usuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_exp_json_Click(object sender, EventArgs e)
         {
             try
@@ -103,6 +124,11 @@ namespace FrmPrincipal
 
         }
 
+        /// <summary>
+        /// exporta un csv de la lista de choferes a la pc del usuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_exp_csv_Click(object sender, EventArgs e)
         {
             try

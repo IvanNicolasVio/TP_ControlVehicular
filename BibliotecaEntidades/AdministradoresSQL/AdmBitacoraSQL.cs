@@ -14,6 +14,12 @@ namespace BibliotecaEntidades.AdministradoresSQL
 
         }
 
+        /// <summary>
+        /// Agrega un vehiculo, un horario y nuevos km a una lista de sqlserver llamada bitacora
+        /// </summary>
+        /// <param name="vehiculo"></param>
+        /// <param name="horario"></param>
+        /// <param name="km"></param>
         public void Agregar(Vehiculo vehiculo, string horario, int km)
         {
             try
@@ -39,6 +45,10 @@ namespace BibliotecaEntidades.AdministradoresSQL
             }
         }
 
+        /// <summary>
+        /// Trae todos los id y los cuenta para devolver esa cantidad
+        /// </summary>
+        /// <returns></returns>
         public int ContarId()
         {
             var cantidadViajes = 0;
@@ -65,6 +75,11 @@ namespace BibliotecaEntidades.AdministradoresSQL
             }
         }
 
+        /// <summary>
+        /// trae los elementos de una tabla de Elementos de bitacora y los devuelve en una lista
+        /// </summary>
+        /// <param name="numero"></param>
+        /// <returns></returns>
         public List<ElementosDeBitacora> TraerElementos(int numero) 
         {
             try

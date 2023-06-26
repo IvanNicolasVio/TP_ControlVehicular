@@ -20,7 +20,11 @@ namespace FrmPrincipal
             InitializeComponent();
         }
 
-
+        /// <summary>
+        /// Trata de ingresar la cuenta y contraseña, si no da error
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -34,6 +38,11 @@ namespace FrmPrincipal
 
         }
 
+        /// <summary>
+        /// Cierra el formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             Close();
@@ -50,12 +59,23 @@ namespace FrmPrincipal
             formPrincipal.ShowDialog();
         }
 
+        /// <summary>
+        /// Pone los datos del administrador para ingresar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_adm_Click(object sender, EventArgs e)
         {
             txtBox_usuario.Text = "IvanVio";
             txtBox_contrasenia.Text = "12345";
         }
 
+
+        /// <summary>
+        /// pone datos de un usuario normal para ingresar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_normal_Click(object sender, EventArgs e)
         {
             txtBox_usuario.Text = "Lautaro";

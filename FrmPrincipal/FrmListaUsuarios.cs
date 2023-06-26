@@ -23,6 +23,9 @@ namespace FrmPrincipal
             OrdenarFrm();
         }
 
+        /// <summary>
+        /// Ordena el formulario trayendo la lista de usuarios
+        /// </summary>
         internal void OrdenarFrm()
         {
             var admUsuarios = new AdmUsuarios();
@@ -36,6 +39,12 @@ namespace FrmPrincipal
 
         }
 
+
+        /// <summary>
+        /// Cierra el form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_salir_Click(object sender, EventArgs e)
         {
             var admLog = new Log();
@@ -43,6 +52,12 @@ namespace FrmPrincipal
             Close();
         }
 
+
+        /// <summary>
+        /// Muestra los valores de un usuario seleccionado de la lista en dos textbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -52,7 +67,6 @@ namespace FrmPrincipal
                 string name = selectedData.Nombre.ToString();
                 string password = selectedData.Contrasenia.ToString();
                 bool isAdmin = selectedData.Administrador;
-                // Mostrar los valores en los TextBox
                 textBox_usuario.Text = name;
                 textBox_contrasenia.Text = password;
 
@@ -64,6 +78,11 @@ namespace FrmPrincipal
 
         }
 
+        /// <summary>
+        /// Borra un usuario seleccionado de la lista
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_borrar_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -88,6 +107,11 @@ namespace FrmPrincipal
             }
         }
 
+        /// <summary>
+        /// Exporta la lista de usuarios en un csv
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_exp_csv_Click(object sender, EventArgs e)
         {
             
@@ -105,6 +129,12 @@ namespace FrmPrincipal
             }
         }
 
+
+        /// <summary>
+        /// Exporta la lista de usuarios en un csv
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_exp_json_Click(object sender, EventArgs e)
         {
             

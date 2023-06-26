@@ -18,6 +18,11 @@ namespace BibliotecaEntidades.AdministradoresSQL
         {
         }
 
+
+        /// <summary>
+        ///  Lee y retorna una lista de vehiculos de sql
+        /// </summary>
+        /// <returns></returns>
         public override List<Vehiculo> Leer()
         {
             try
@@ -53,6 +58,11 @@ namespace BibliotecaEntidades.AdministradoresSQL
             }
         }
 
+
+        /// <summary>
+        /// Agrega un vehiculo a una tabla en sql
+        /// </summary>
+        /// <param name="vehiculo"></param>
         public override void Agregar(Vehiculo vehiculo)
         {
             try
@@ -78,7 +88,7 @@ namespace BibliotecaEntidades.AdministradoresSQL
         }
 
         /// <summary>
-        /// Sirve para ser iterada y modificar la lista
+        /// Modifica un vehiculo en una tabla de vehiculos en sql
         /// </summary>
         /// <param name="vehiculo"></param>
         public override void ModificarLista(Vehiculo vehiculo)
@@ -109,6 +119,14 @@ namespace BibliotecaEntidades.AdministradoresSQL
             }
         }
 
+        /// <summary>
+        /// Modifica un vehiculo de una tabla de vehiculos para cambiarle el valor de Activo,los kilometros, la persona asignada y el horario de salida
+        /// </summary>
+        /// <param name="vehiculo"></param>
+        /// <param name="kilometros"></param>
+        /// <param name="trueFalse"></param>
+        /// <param name="personaAsignada"></param>
+        /// <param name="horarioSalida"></param>
         public void Modificar(Vehiculo vehiculo, int kilometros, bool trueFalse, Persona personaAsignada, string horarioSalida)
         {
             try
@@ -131,6 +149,14 @@ namespace BibliotecaEntidades.AdministradoresSQL
             }
         }
 
+
+        /// <summary>
+        /// Modifica un vehiculo de una tabla de vehiculos para cambiarle el valor de Activo,los kilometros, la persona asignada y el horario de salida
+        /// </summary>
+        /// <param name="vehiculo"></param>
+        /// <param name="trueFalse"></param>
+        /// <param name="personaAsignada"></param>
+        /// <param name="horarioSalida"></param>
         public void ModificarSinKm(Vehiculo vehiculo, bool trueFalse, Persona personaAsignada, string horarioSalida)
         {
             try
@@ -153,6 +179,11 @@ namespace BibliotecaEntidades.AdministradoresSQL
             }
         }
 
+
+        /// <summary>
+        /// Borra un vehiculo de una tabla de vehiculos en sql
+        /// </summary>
+        /// <param name="vehiculo"></param>
         public override void Borrar(Vehiculo vehiculo)
         {
             try

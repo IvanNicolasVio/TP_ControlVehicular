@@ -197,6 +197,11 @@ namespace Clases
             
         }
 
+        /// <summary>
+        /// Cambia los valores 1 por true, y el resto por false
+        /// </summary>
+        /// <param name="texto"></param>
+        /// <returns></returns>
         public static bool ValidarAdministradorPorInt(int texto)
         {
             if (texto == 1)
@@ -210,6 +215,11 @@ namespace Clases
 
         }
 
+        /// <summary>
+        /// Cambia los valores, si es true devuelve 1, si no 0
+        /// </summary>
+        /// <param name="texto"></param>
+        /// <returns></returns>
         public static int BoolAInt(bool texto)
         {
             if (texto == true)
@@ -293,6 +303,12 @@ namespace Clases
             }
         }
 
+
+        /// <summary>
+        /// devuelve null si es null, y si es int lo devuelve como int
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public static int? ConvertToInt(object obj)
         {
             if (obj == null)
@@ -307,6 +323,13 @@ namespace Clases
             return null;
         }
 
+
+        /// <summary>
+        /// Chequea que la cantidad pedida sea igual o menor a la cantidad de viajes realizados
+        /// </summary>
+        /// <param name="cantidadViajes"></param>
+        /// <param name="cantidadPedida"></param>
+        /// <exception cref="Exception"></exception>
         public static void ValidarCantidadViajes(int cantidadViajes, int cantidadPedida) 
         {
             if(cantidadPedida > cantidadViajes) 
@@ -315,6 +338,13 @@ namespace Clases
             }
         }
 
+
+        /// <summary>
+        /// Si se puede parsear y es mayor a 0,devuelve un int, si no, da una excepcion
+        /// </summary>
+        /// <param name="numero"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
         public static int ValidarNumero(string numero) 
         {
             if (!int.TryParse(numero, out var numeroValidado))

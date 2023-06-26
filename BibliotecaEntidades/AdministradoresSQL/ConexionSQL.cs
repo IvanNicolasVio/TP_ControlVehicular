@@ -20,6 +20,9 @@ namespace BibliotecaEntidades.AdministradoresSQL
             _connectionString = @"Server=.;Database=ControlVehicular;Trusted_Connection=True;";
         }
 
+        /// <summary>
+        /// Abre una conexion sql
+        /// </summary>
         public void Abrir()
         {
             _connection = new SqlConnection(_connectionString);
@@ -28,6 +31,9 @@ namespace BibliotecaEntidades.AdministradoresSQL
 
         }
 
+        /// <summary>
+        /// Cierra una conexion sql
+        /// </summary>
         public void Cerrar()
         {
             _connection.Close();

@@ -23,6 +23,11 @@ namespace FrmPrincipal
 
         }
 
+        /// <summary>
+        /// Muestra la lista de vehiculos en un datagrid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_mostrar_Click(object sender, EventArgs e)
         {
             var admVehiculos = new AdmVehiculos();
@@ -33,6 +38,12 @@ namespace FrmPrincipal
             admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Mostro la lista de vehiculos");
         }
 
+
+        /// <summary>
+        /// Luego de editar un datagrid, guarda los datos en la lista de vehiculos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_editar_Click(object sender, EventArgs e)
         {
             var admVehiculos = new AdmVehiculos();
@@ -45,6 +56,9 @@ namespace FrmPrincipal
 
 
 
+        /// <summary>
+        /// Ordena el formulario, muestra algunos botones si es adm y no los muestra si es normal
+        /// </summary>
         private void OrdenarFrm()
         {
             if (AdmUsuarios.UsuarioActivo!.Administrador)
@@ -61,6 +75,11 @@ namespace FrmPrincipal
             }
         }
 
+        /// <summary>
+        /// Borra un elemento seleccionado del datagrid y en la base de datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_borrar_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 0)
@@ -85,6 +104,11 @@ namespace FrmPrincipal
             }
         }
 
+        /// <summary>
+        /// Exporta la lista a un csv
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_exp_csv_Click(object sender, EventArgs e)
         {
 
@@ -102,6 +126,11 @@ namespace FrmPrincipal
             }
         }
 
+        /// <summary>
+        /// exporta la lista a un json
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_exp_json_Click(object sender, EventArgs e)
         {
             

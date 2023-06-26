@@ -24,16 +24,28 @@ namespace BibliotecaEntidades.AdministradoresDeClases
             this.datos = datos;
         }
 
+        /// <summary>
+        /// Trae una lista de usuarios de una base de datos
+        /// </summary>
+        /// <returns></returns>
         public List<Usuario> TraerLista()
         {
             return datos.Leer();
         }
 
+        /// <summary>
+        /// Borra un Usuario de una base de datos
+        /// </summary>
+        /// <param name="usuario"></param>
         public void Borrar(Usuario usuario)
         {
             datos.Borrar(usuario);
         }
 
+        /// <summary>
+        /// Edita una lista de Usuarios de una base de datos
+        /// </summary>
+        /// <param name="lista"></param>
         public void EditarChofer(List<Usuario> lista)
         {
             foreach (Usuario usuario in lista)
@@ -42,6 +54,13 @@ namespace BibliotecaEntidades.AdministradoresDeClases
             }
         }
 
+        /// <summary>
+        /// Compara los datos ingresados con una lista de base de datos y retorna un Usuario
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="contrasenia"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public Usuario Login(string nombre, string contrasenia)
         {
             var usuarios = datos.Leer();

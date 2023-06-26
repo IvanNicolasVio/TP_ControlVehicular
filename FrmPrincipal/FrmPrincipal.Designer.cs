@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmContenedor));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             menuStrip1 = new MenuStrip();
             menuToolStripMenuItem = new ToolStripMenuItem();
             listaVehiculosToolStripMenuItem = new ToolStripMenuItem();
@@ -65,7 +68,9 @@
             boton_ext_pdf = new Button();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             boton_ext_log = new Button();
+            chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -399,13 +404,32 @@
             boton_ext_log.UseVisualStyleBackColor = true;
             boton_ext_log.Click += boton_ext_log_Click;
             // 
+            // chart1
+            // 
+            chart1.BackColor = Color.Transparent;
+            chartArea1.Name = "ChartArea1";
+            chart1.ChartAreas.Add(chartArea1);
+            legend1.BackColor = Color.Transparent;
+            legend1.Name = "Legend1";
+            chart1.Legends.Add(legend1);
+            chart1.Location = new Point(12, 206);
+            chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            chart1.Series.Add(series1);
+            chart1.Size = new Size(263, 174);
+            chart1.TabIndex = 41;
+            chart1.Text = "chart1";
+            // 
             // FrmContenedor
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveBorder;
+            BackColor = SystemColors.ActiveCaptionText;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(800, 450);
+            Controls.Add(chart1);
             Controls.Add(boton_ext_log);
             Controls.Add(boton_ext_pdf);
             Controls.Add(txt_tipoUsuario);
@@ -442,6 +466,7 @@
             Load += FrmContenedor_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -484,5 +509,6 @@
         private Button boton_ext_pdf;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private Button boton_ext_log;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }

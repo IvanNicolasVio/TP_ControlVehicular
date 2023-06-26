@@ -21,6 +21,11 @@ namespace FrmPrincipal
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Crea un vehiculo y lo ingresa a una base de datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
             var vehiculos = new AdmVehiculos();
@@ -38,6 +43,12 @@ namespace FrmPrincipal
             }
         }
 
+
+        /// <summary>
+        /// Cierra el formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             Close();

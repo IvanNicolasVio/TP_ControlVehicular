@@ -3,7 +3,11 @@ using BibliotecaEntidades.AdministradoresDeClases;
 using BibliotecaEntidades.Clases;
 using Clases;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Collections.Generic;
+using System.Windows.Forms.DataVisualization.Charting;
+
+
+
 
 namespace FrmPrincipal
 {
@@ -11,14 +15,22 @@ namespace FrmPrincipal
     {
         private bool _botonActivo = false;
         private Form1 _form1;
+
         public FrmContenedor(Form1 form1)
         {
             var admLog = new Log();
             admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Inicio sesion");
             InitializeComponent();
             _form1 = form1;
+
         }
 
+
+        /// <summary>
+        /// Ingresa al formulario de lista de choferes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listaDeChoferesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var admLog = new Log();
@@ -28,6 +40,11 @@ namespace FrmPrincipal
 
         }
 
+        /// <summary>
+        /// Ingresa al formulario para crear nuevo chofer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void nuevoChoferToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var admLog = new Log();
@@ -36,6 +53,11 @@ namespace FrmPrincipal
             frmCargarChofer.ShowDialog();
         }
 
+        /// <summary>
+        /// Ingresa al formulario para crear un nuevo usuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void crearUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var admLog = new Log();
@@ -44,6 +66,11 @@ namespace FrmPrincipal
             frmCargarUsuario.ShowDialog();
         }
 
+        /// <summary>
+        /// Ingresa al formulario para modificiar un usuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void modificarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var admLog = new Log();
@@ -52,6 +79,11 @@ namespace FrmPrincipal
             frmListaUsuario.ShowDialog();
         }
 
+        /// <summary>
+        /// Ingresa al formulario para ver la lista de vehiculos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listaVehiculosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var admLog = new Log();
@@ -61,6 +93,11 @@ namespace FrmPrincipal
             formLista.ShowDialog();
         }
 
+        /// <summary>
+        /// ingresa al formulario para agregar un vehiculo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void nuevoVehiculoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var admLog = new Log();
@@ -309,11 +346,21 @@ namespace FrmPrincipal
             return -1;
         }
 
+        /// <summary>
+        /// Actualiza el dni del chofer segun sea el nombre
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBox_dniChofer_SelectedIndexChanged(object sender, EventArgs e)
         {
             actualizarNombres();
         }
 
+        /// <summary>
+        /// Comienza el viaje del vehiculo, le carga el chofer y la hora a la que salio
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_comenzar_Click(object sender, EventArgs e)
         {
 
@@ -332,6 +379,9 @@ namespace FrmPrincipal
                 choferes.HacerActivoChofer(chofer);
                 MessageBox.Show($"Horario de salida: {textBox_horarioSalida.Text}");
                 HacerElementosVisibles(false);
+
+                var admVehiculos = new AdmVehiculos();
+                ConfigurarGraficoTorta(admVehiculos.TraerLista(), chart1);
             }
             catch (Exception ex)
             {
@@ -339,7 +389,11 @@ namespace FrmPrincipal
             }
         }
 
-
+        /// <summary>
+        /// Termina el viaje del vehiculo, le saca el chofer y la hora a la que salio
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_terminar_Click(object sender, EventArgs e)
         {
             var admLog = new Log();
@@ -356,8 +410,16 @@ namespace FrmPrincipal
             var horarioEntrada = Horario.HorarioActual();
             AdmBitacora.CargarVehiculo(vehiculo, horarioEntrada, nuevosKm);
             HacerElementosVisibles(false);
+
+            var admVehiculos = new AdmVehiculos();
+            ConfigurarGraficoTorta(admVehiculos.TraerLista(), chart1);
         }
 
+        /// <summary>
+        /// Cierra la sesion del usuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_cerrarSesion_Click(object sender, EventArgs e)
         {
             var admLog = new Log();
@@ -367,24 +429,82 @@ namespace FrmPrincipal
 
         }
 
+        /// <summary>
+        /// Hace la carga principal de los botones y sus datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmContenedor_Load(object sender, EventArgs e)
         {
             organizarFormulario();
             cargarPatentes();
             _form1.Hide();
+            var admVehiculos = new AdmVehiculos();
+            ConfigurarGraficoTorta(admVehiculos.TraerLista(), chart1);
         }
 
+        /// <summary>
+        /// Configura el grafico de torta
+        /// </summary>
+        /// <param name="listaVehiculos"></param>
+        /// <param name="chart"></param>
+        public void ConfigurarGraficoTorta(List<Vehiculo> listaVehiculos, Chart chart)
+        {
+            int activos = 0;
+            int inactivos = 0;
+            foreach (Vehiculo vehiculo in listaVehiculos)
+            {
+                if (vehiculo.Activo)
+                {
+                    activos++;
+                }
+                else
+                {
+                    inactivos++;
+                }
+            }
+            chart.Series.Clear();
+            Series serie = new Series("Estado de los vehículos");
+            serie.ChartType = SeriesChartType.Pie;
+            serie.IsVisibleInLegend = true;
+            serie.Points.AddXY("Activos", activos);
+            serie.Points.AddXY("Inactivos", inactivos);
+            chart.Series.Add(serie);
+            chart.BackColor = Color.Transparent;
+            chart.ChartAreas[0].BackColor = Color.Transparent;
+            chart.Series[0].Label = "#PERCENT{P0}";
+            chart.Series[0].LegendText = "#VALX";
+            chart.Titles.Clear();
+            chart.Titles.Add("DETALLES DE VEHICULOS");
+            chart.Titles[0].Font = new Font("Impact", 12);
+            chart.Legends.Clear();
+            Legend legend = new Legend("Legend1");
+            legend.BackColor = Color.Transparent;
+            legend.Font = new Font("Impact", 12);
+            chart.Legends.Add(legend);
+            chart.Invalidate();
+        }
+
+        /// <summary>
+        /// Extrae la bitacora en pdf
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_ext_pdf_Click(object sender, EventArgs e)
         {
             var admLog = new Log();
             admLog.AdmLog_MetodoActivado(AdmUsuarios.UsuarioActivo.Nombre, DateTime.Now.ToString(), "Exporto la lista de viajes a PDF");
-
             var viajes = new FrmViajes();
             viajes.ShowDialog();
             var listaElementos = AdmBitacora.TraerLista(viajes.Viajes);
             Informes<ElementosDeBitacora>.GuardarPDF(listaElementos);
         }
 
+        /// <summary>
+        /// extrae los logs en pdf
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_ext_log_Click(object sender, EventArgs e)
         {
             var log = new Log();

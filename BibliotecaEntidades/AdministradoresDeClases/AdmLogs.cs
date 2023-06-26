@@ -19,17 +19,33 @@ namespace BibliotecaEntidades.AdministradoresDeClases
 
         }
 
+        /// <summary>
+        /// Hace Invoke al evento MetodoActivado
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <param name="horario"></param>
+        /// <param name="metodo"></param>
         public void MetodoActivadoON(string usuario, string horario, string metodo)
         {
             MetodoActivado?.Invoke(usuario, horario, metodo);
         }
 
+        /// <summary>
+        /// Ingresa los datos a una base de datos
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <param name="horario"></param>
+        /// <param name="metodo"></param>
         public void IngresarATabla(string usuario, string horario, string metodo)
         {
             var admLogsSQL = new AdmLogsSQL();
             admLogsSQL.Agregar(usuario, horario, metodo);
         }
 
+        /// <summary>
+        /// devuelve una lista de LogParaPdf de una base de datos
+        /// </summary>
+        /// <returns></returns>
         public List<LogParaPdf> DevolverLogs() 
         {
             var admLogsSQL = new AdmLogsSQL();

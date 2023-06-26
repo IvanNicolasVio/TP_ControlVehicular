@@ -94,6 +94,11 @@ namespace Clases
             Id = id;
         }
 
+        /// <summary>
+        /// Encuentra un chofer por id en una lista de choferes
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Persona EncontrarChofer(int? id) 
         {
             if(id is int) 
@@ -104,26 +109,6 @@ namespace Clases
             else { return null; }
         }
 
-
-        /// <summary>
-        /// Devuelve un string informando las distintas propiedades del objeto
-        /// </summary>
-        /// <param name="horario"></param>
-        /// <returns></returns>
-        public string MostrarDetallesDeSalida(string horario,int km) 
-        {
-            
-            var sb = new StringBuilder();
-            sb.AppendLine($"El vehiculo: {Dominio} ");
-            sb.Append($" de tipo {Tipo}");
-            sb.Append($" salio {HorarioSalida}");
-            sb.Append($" con {PersonaAsignada.Nombre} {PersonaAsignada.Apellido}");
-            sb.Append($" DNI: {PersonaAsignada.DNI}");
-            sb.Append($" y volvio {horario}");
-            sb.Append($" |||  Kilometros anteriores {Kilometros}");
-            sb.Append($" |||  Kilometros actuales {km}");
-            return sb.ToString();
-        }
 
         public static bool operator ==(Vehiculo a, Vehiculo b)
         {

@@ -15,6 +15,10 @@ namespace BibliotecaEntidades.AdministradoresSQL
 
         }
 
+        /// <summary>
+        /// Lee y devuelve una lista de LogParaPdf desde sql
+        /// </summary>
+        /// <returns></returns>
         public new List<LogParaPdf> Leer()
         {
             try
@@ -44,6 +48,13 @@ namespace BibliotecaEntidades.AdministradoresSQL
                 Cerrar();
             }
         }
+
+        /// <summary>
+        /// Agrega un nombre,un horario y la descrpcion de un metodo a una tabla de logs
+        /// </summary>
+        /// <param name="usuario"></param>
+        /// <param name="horario"></param>
+        /// <param name="metodo"></param>
         public void Agregar(string usuario,string horario,string metodo)
         {
             try

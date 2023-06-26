@@ -14,6 +14,12 @@ namespace BibliotecaEntidades.Clases
 {
     public static class Informes<T>
     {
+
+        /// <summary>
+        /// Guarda una lista en un archivo JSON
+        /// </summary>
+        /// <param name="data"></param>
+        /// <exception cref="Exception"></exception>
         public static void GuardarJson(List<T> data) 
         {
             if (data is null)
@@ -32,6 +38,11 @@ namespace BibliotecaEntidades.Clases
             }                        
         }
 
+        /// <summary>
+        /// Guarda una lista en un CSV
+        /// </summary>
+        /// <param name="data"></param>
+        /// <exception cref="Exception"></exception>
         public static void GuardarCSV(List<T> data)
         {
             if (data is null)
@@ -55,6 +66,10 @@ namespace BibliotecaEntidades.Clases
             }   
         }
 
+        /// <summary>
+        /// Guarda una lista de elementos de bitacora en un pdf
+        /// </summary>
+        /// <param name="elementosDeBitacora"></param>
         public static void GuardarPDF(List<ElementosDeBitacora> elementosDeBitacora)
         {
             var saveFileDialog = new SaveFileDialog();
@@ -89,6 +104,10 @@ namespace BibliotecaEntidades.Clases
             }
         }
 
+        /// <summary>
+        /// Guarda una lista de LogParaPdf en un PDF
+        /// </summary>
+        /// <param name="logs"></param>
         public static void GuardarLogsPDF(List<LogParaPdf> logs)
         {
             var saveFileDialog = new SaveFileDialog();

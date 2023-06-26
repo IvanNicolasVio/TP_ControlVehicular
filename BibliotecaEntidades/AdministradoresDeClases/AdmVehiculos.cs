@@ -21,16 +21,28 @@ namespace BibliotecaEntidades.AdministradoresDeClases
             this.datos = datos;
         }
 
+        /// <summary>
+        /// retorna una lista de vehiculos
+        /// </summary>
+        /// <returns></returns>
         public List<Vehiculo> TraerLista()
         {
             return datos.Leer();
         }
 
+        /// <summary>
+        /// borra un vehiculo de una lista de vehiculos
+        /// </summary>
+        /// <param name="vehiculo"></param>
         public void Borrar(Vehiculo vehiculo)
         {
             datos.Borrar(vehiculo);
         }
 
+        /// <summary>
+        /// Mdifica una lista de vehiculos
+        /// </summary>
+        /// <param name="lista"></param>
         public void EditarVehiculo(List<Vehiculo> lista)
         {
             foreach (Vehiculo vehiculo in lista)

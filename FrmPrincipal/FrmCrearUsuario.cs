@@ -20,6 +20,12 @@ namespace FrmPrincipal
             InitializeComponent();
         }
 
+
+        /// <summary>
+        /// Crea un usuario y lo agrega a una base de datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_crear_Click(object sender, EventArgs e)
         {
             try
@@ -37,6 +43,12 @@ namespace FrmPrincipal
             }
         }
 
+
+        /// <summary>
+        /// Cierra el form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_cancelar_Click(object sender, EventArgs e)
         {
             var admLog = new Log();

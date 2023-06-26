@@ -26,6 +26,10 @@ namespace BibliotecaEntidades.AdministradoresDeClases
             return datos.Leer();
         }
 
+        /// <summary>
+        /// Edita la lista de choferes
+        /// </summary>
+        /// <param name="lista"></param>
         public void EditarChofer(List<Persona> lista)
         {
             foreach (Persona chofer in lista)
@@ -34,6 +38,10 @@ namespace BibliotecaEntidades.AdministradoresDeClases
             }
         }
 
+        /// <summary>
+        /// Borra una Persona de la lista de choferes
+        /// </summary>
+        /// <param name="chofer"></param>
         public void Borrar(Persona chofer)
         {
             datos.Borrar(chofer);
@@ -77,6 +85,11 @@ namespace BibliotecaEntidades.AdministradoresDeClases
             return null;
         }
 
+        /// <summary>
+        /// Encuentra un chofer por ID en una base de datos
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Persona EncontrarChoferPorId(int? id)
         {
             var choferes = TraerLista();

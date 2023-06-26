@@ -20,6 +20,10 @@ namespace BibliotecaEntidades.AdministradoresSQL
         {
         }
 
+        /// <summary>
+        /// Lee y devuelve una lista de personas de sql
+        /// </summary>
+        /// <returns></returns>
         public override List<Persona> Leer()
         {
             try
@@ -53,6 +57,10 @@ namespace BibliotecaEntidades.AdministradoresSQL
             }
         }
 
+        /// <summary>
+        /// agrega una persona a una tabla de Choferes en sql
+        /// </summary>
+        /// <param name="chofer"></param>
         public override void Agregar(Persona chofer)
         {
             try
@@ -77,7 +85,7 @@ namespace BibliotecaEntidades.AdministradoresSQL
         }
 
         /// <summary>
-        /// Sirve para ser iterada y modificar la lista
+        /// Itera una lista de choferes y los modifica
         /// </summary>
         /// <param name="vehiculo"></param>
         public override void ModificarLista(Persona chofer)
@@ -107,6 +115,11 @@ namespace BibliotecaEntidades.AdministradoresSQL
             }
         }
 
+        /// <summary>
+        /// Cambia el valor de la propiedad activo de una persona
+        /// </summary>
+        /// <param name="chofer"></param>
+        /// <param name="trueFalse"></param>
         public override void ModificarBooleano(Persona chofer, bool trueFalse)
         {
             try
@@ -127,6 +140,10 @@ namespace BibliotecaEntidades.AdministradoresSQL
             }
         }
 
+        /// <summary>
+        /// Borra una persona de la tabla choferes
+        /// </summary>
+        /// <param name="chofer"></param>
         public override void Borrar(Persona chofer)
         {
             try

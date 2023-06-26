@@ -30,6 +30,11 @@ namespace FrmPrincipal
             set { _kilometros = value; }
         }
 
+        /// <summary>
+        /// Carga los kilometros en la propiedad del form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_cargar_Click(object sender, EventArgs e)
         {
             try
@@ -49,6 +54,12 @@ namespace FrmPrincipal
             }
         }
 
+
+        /// <summary>
+        /// Efectua los cambios al princio del form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmCargarKilometros_Load_1(object sender, EventArgs e)
         {
             label2.Text = $"KM anteriores: {_vehiculo.Kilometros}";

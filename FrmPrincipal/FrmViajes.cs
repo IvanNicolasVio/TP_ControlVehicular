@@ -27,11 +27,21 @@ namespace Biblioteca_de_Formularios
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Cuenta los viajes realizados y los muestr
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmViajes_Load(object sender, EventArgs e)
         {
             label_modificable.Text = AdmBitacora.ContarViajes().ToString();
         }
 
+        /// <summary>
+        /// Acepta el ingredo de los viajes que se quieren mostrae
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_aceptar_Click(object sender, EventArgs e)
         {
             try
@@ -47,6 +57,11 @@ namespace Biblioteca_de_Formularios
             }
         }
 
+        /// <summary>
+        /// Cierra el formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void boton_salir_Click(object sender, EventArgs e)
         {
             Close();
